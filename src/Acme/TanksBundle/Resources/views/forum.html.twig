@@ -1,0 +1,16 @@
+{% extends 'AcmeTanksBundle::base.html.twig' %}
+{%block title%}
+		{{tag}} форум
+{%endblock %}	
+{%block theme%}
+	{%if app.request.cookies.has('login') %}
+		<div id='new_' onclick="add_open('new_theme')" >Додати нову тему</div>
+	{%else%}
+		<div id=new_ onclick='window.scrollTo(0,0);enter()'>Зареєструйтесь щоб додати тему</div>	
+	{%endif%}	
+	
+	{% include 'AcmeTanksBundle::add_theme.html.twig' %}
+	<div id='right_div'>Тут може бути ваша реклама</div>
+	{% include 'AcmeTanksBundle::themes.html.twig' %}
+	<div id='new_block'></div>
+{%endblock %}	

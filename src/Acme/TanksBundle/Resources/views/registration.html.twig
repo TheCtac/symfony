@@ -1,0 +1,43 @@
+{% extends 'AcmeTanksBundle::base.html.twig' %}
+{%block title%}
+		Реєстрація
+{%endblock %}	
+{%block theme%}
+		<div id='reg_div'><br>
+			<div style='float:left;text-align:right;width:49%;'>
+				логін*<br><br>
+				e-mail*<br><br>
+				аватар<br><br>
+				вік<br><br>
+				місто<br><br>
+				стать<br><br>
+				пароль*<br><br>
+				підтвердження*<br><br>	
+				про себе
+			</div>
+			<div style='float:right;text-align:left;width:49%;'>
+				<form id='registr' name='registr_form' method='post' enctype='multipart/form-data'>
+					<input onfocusout='loginCheck()' type='text' name='login' placeholder='логін' >
+					<div style='height:20px;' id='loginCheck'></div>
+					<input type='text' name='email' placeholder='електрона пошта' ><br><br>
+					<div id='add_photo_div'>
+						<div style='float:left;width:220;position:absolute;' id='photo_value'>файл не вибраний</div>
+						<div style='float:right;background:#f90;position:relative;color:black;'>&nbspдодати фото&nbsp </div>
+						<div><input type='file' name='user_photo_' onchange='add_view.call(this)' accept='image/*'></div>
+					</div><br>
+					<input type='text' name='age' placeholder='вік' ><br><br>
+					<input type='text' name='city' placeholder='місто' ><br><br>
+					<select name='male' size='1'>
+						<option value='male'>чол.</option>
+						<option value='female'>жін.</option>
+						<option value='thing'>не тисніть на мене</option>
+					</select><br><br>
+					<input type='password' name='pass1' placeholder='пароль' ><br><br>
+					<input type='password' name='pass2' placeholder='підтвердження паролю' ><br><br>
+					<textarea id='commArea' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('commArea')};"
+					name='about' placeholder='коротко про себе' cols='50'rows='4' ></textarea>
+				</form>	
+			</div>
+		<div id='send_reg' style='width:98.6%;background:#f90;clear:right;padding:0.7%;cursor:pointer;' onclick='send_reg()'>відправити</div>
+		</div>
+{%endblock%}

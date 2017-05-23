@@ -1,0 +1,41 @@
+{% extends 'AcmeTanksBundle::base.html.twig' %}
+{%block title%}
+		{{data.name}}
+{%endblock %}	
+{%block theme%}
+	<div style='text-align:center;width:100%;height:50px;border-bottom:2px solid #fa0;font-size:22px;color:#fa0'>{{data.name}}</div>
+	
+	<div id=theme_body>
+		{{data.history|text_form|raw}}<br><br>	
+		{%if data.photo!='Photo/'%}
+			<img style='width:60%' src='{{asset(data.photo)}}'>
+		{%endif%}
+	</div><br>
+	<div style='clear:left;text-align:center;width:100%;border-top:2px solid #fa0;'></div>
+	
+	<div id='comments'>
+	{%for comm in comm%}
+		{% include 'AcmeTanksBundle::comment.html.twig' %}
+	{%endfor%}
+	</div>
+		
+	{#ДОДАТИ КОМЕНТАР#}
+	{%if app.request.cookies.has('login') %}
+		<div id='new_' onclick="add_open('new_comm')" >додати коментар</div>
+			<div id='new_comm' style='display:none;width:100%;position:relative;'>
+				<form id='new_comm_form' name='add_comm_form' method='post' enctype='multipart/form-data'>
+					<input type='hidden' name='user' value="{{app.request.cookies.get('login')}}">
+					<input type='hidden' name='theme' value="{{data.name}}"><br>
+					<textarea id='commArea' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('commArea')};" name='new_comm' rows='10' style='width:80%;' value='' placeholder='ваш коментар'></textarea>
+				</form>
+				<div style='position:relative;background:#444;width:99%;padding:0.5%;'>
+				<div style='position:relative;background:#f90;padding:0.5%;width:25%;left:37.5%;border-radius:3px;font-size:20px;color:black;cursor:pointer;border:1px solid #222;' onclick='add_new_comm("tank")'> відправити </div>
+				</div><br><br>	
+				</div>
+			</div>
+	{%else%}
+		<div id=new_ onclick='window.scrollTo(0,0);enter()'>Зареєструйтесь щоб додати коментар</div>	
+	{%endif%}	
+	<div style='clear:left;text-align:center;width:100%;border-top:2px solid #fa0;'></div>		
+
+{%endblock%}

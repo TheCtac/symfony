@@ -1,0 +1,26 @@
+	<div id='new_theme'><br>
+			<div style='float:left;width:49%;text-align:right;'>
+				назва теми*<br><br>
+				теги*<br><br>
+				фото<br><br>
+			</div>	
+			<form id='new_theme_form' name='add_theme_form' method='post' enctype='multipart/form-data'>
+			<div style='float:right;width:49%;text-align:left;'>
+				<input type='hidden' name='theme_author' value='{{app.request.cookies.get('login')}}'>
+				<input type='text' name='theme_name' placeholder='введіть назву теми'><br><br>
+				<input type='text' name='theme_tags' placeholder='введіть теги через кому'><br><br>
+				<div id='add_photo_div'>
+					<div style='float:left;width:220px;position:absolute;' id='photo_value'>файл не вибраний</div>
+					<div style='float:right;background:#f90;position:relative;color:black;'>&nbspдодати фото&nbsp </div>
+					<div><input type='file' name='theme_photo_' value='' onchange='add_view.call(this)' accept='image/*'></div>
+				</div>
+			</div>
+			<div>
+				<textarea id='commArea' rows='10' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('commArea')};"
+				name='theme_text' placeholder='текст теми*'style='width:80%'></textarea><br><br>	
+			</div>
+			</form>
+		<div id='add_new_tank_' style='position:relative;background:#444;width:99%;padding:0.5%;'>
+			<div style='position:relative;background:#f90;padding:0.5%;width:25%;left:37.5%;border-radius:3px; 	border:1px solid #222;font-size:20px;color:black;cursor:pointer;' onclick='add_new_theme()'> створити тему </div>
+		</div>	
+</div><br>	

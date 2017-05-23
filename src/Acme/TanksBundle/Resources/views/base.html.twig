@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>{% block title %}Цистерни.ua-головна{% endblock %}</title>
+    <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="{{ asset('scripts/jquery-2.2.0.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('scripts/script.js') }}"></script>
+	<link rel="shortcut icon" href="{{ asset('images/logo2.ico') }}" />
+</head>
+<body>
+	<div id='header_'>
+	  <a href="{{path('acme_tanks_homepage')}}">
+	    <img alt src="{{ asset('images/back.png') }}" width="100%" height="250">
+      </a>
+	</div>
+	{% include  'AcmeTanksBundle::menu.html.twig'%}
+	{%block user_form %} {% endblock%}	
+	<div id='theme_'>
+	  {% block theme %}
+	  	<h1>Весела гра Перетягни танчік !</h1>
+		<img style='width:200px;cursor:pointer;' id='tank' name="logoimg" src="{{ asset('images/logo2.png') }}">
+		<div id='droppable' style='border:1px solid #fa0;width:100px;height:100px;float:left;margin:10px;'>Тягни сюди</div>
+	    <hr>
+		<h1>csv read :</h1>
+		{%if names is defined %}
+		<table >
+		  <th>код</th><th>ЖКП</th><th>ПІБ</th><th>Прописано</th><th>Площа</th><th>Код оп.</th><th>Код г.в.</th>
+		  {% for i in 10..30 %}
+			<tr>
+		    {% set name_arr = names[i]|split(';') %}
+		    <td>{{ name_arr[0] }}</td>
+			<td>{{ name_arr[1] }}</td>
+			<td>{{ name_arr[2] }}</td>
+			<td>{{ name_arr[3] }}</td>
+			<td>{{ name_arr[4] }}</td>
+			<td>{{ name_arr[6] }}</td>
+			<td>{{ name_arr[7] }}</td>
+			</tr>
+		  {% endfor %}
+		</table> 
+       	{% endif %}	
+	    <hr>
+		<h1>csv to xml :</h1>
+		
+		{#пошук в XML#}
+		<div style='background-color:#444;padding:5px;cursor:pointer;' 
+		onclick = "add_open('new_theme')">
+		  Пошук в XML
+		</div>
+		<div id='new_theme'>
+		  <form name='xmlFind' enctype='multipart/form-data' method='post' action=''>
+		    <br>
+			ПІБ <input type='text' name = 'pib' value = '' placeholder = 'введіть прізвище'> *
+			<br><br>
+		  </form>
+		  <div id='add_new_tank_' style='position:relative;background:#444;width:99%;padding:0.5%;clear:right;'>
+		    <div style='position:relative;background:#f90;padding:0.5%;width:25%;left:37.5%;border-radius:3px;border:1px solid #222;font-size:20px;color:black;cursor:pointer;' onclick='find_in_xml()'> знайти </div>
+	      </div>	
+		</div>
+		{# /пошук в XML#}
+		<div style='text-align:left; padding :5px;'>{{xml|raw}}</div>
+
+      {% endblock %}
+	</div>
+</body>
+</html>

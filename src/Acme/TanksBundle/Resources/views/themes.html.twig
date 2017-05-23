@@ -1,0 +1,14 @@
+{%for data in data%}
+<div class='show_theme'>
+	{%if data.photos!='Photo/'%}
+		<a href='{{path('acme_tanks_theme',{'theme':data.name})}}'>
+			<img width='auto' height='110%' src='{{asset(data.photos)}}'>
+		</a>
+	{%endif%}	
+	<a href='{{path('acme_tanks_theme',{'theme':data.name})}}'><font color='#fa0' size='5'>{{data.name}}</font></a><br>
+		автор:<a href='users.php?user_=".$author_."'>{{data.author}}</a>
+		теги: {{data.tags|get_tags|raw}};
+		додано:{{data.date|date('d.m.Y H:i')}}
+		<br>	{{data.body|slice(0,100)}}...
+</div>
+{%endfor%}
