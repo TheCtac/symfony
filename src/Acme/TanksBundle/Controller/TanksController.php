@@ -257,7 +257,6 @@ class TanksController extends Controller
 		}
 		$repository =$this->getDoctrine()->getRepository('AcmeTanksBundle:users');
 		$user=$repository->findOneByHash($hash);
-		
 		return $this->render('AcmeTanksBundle::userRed.html.twig',array('user'=>$user));				
 	}
     public function userMessAction($type){
