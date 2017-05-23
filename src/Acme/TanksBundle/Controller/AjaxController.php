@@ -40,6 +40,7 @@ class AjaxController extends Controller
 		if(empty($login)){
 			return $user;
 		}
+		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
 		$user = $repository->findOneByLogin($login);
 		$voit_ = ($user->getRating() < 1 ? 0.1 :$user->getRating() / 100);
