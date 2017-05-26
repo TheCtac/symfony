@@ -97,30 +97,34 @@ class TanksController extends Controller
 		$user = array('login'=>$user->getLogin(),'id'=>$user->getId(),'voit'=>$voit_, 'photo'=>$user->getPhoto());
 		return $user;	
 	}
-	public function reviewAction($type,$page)
+	public function reviewAction($type,$page,$level)
     {	
-		switch($type){
-			case "TT":$vid_='важких танків';break;
-			case "ST":$vid_='середніх танків';break;
-			case "LT":$vid_='легких танків';break;
-			case "PT":$vid_='ПТ-САУ';break;
-			case "SAU":$vid_='САУ';break;
-			case "all":$vid_='танків';break;
+		if( $level == 0){
+			$lev = '';
+	    }else{
+			$lev = $level.'-го рівня';
 		}
+		switch($type){
+			case "TT":$vid_='важких танків ';break;
+			case "ST":$vid_='середніх танків ';break;
+			case "LT":$vid_='легких танків ';break;
+			case "PT":$vid_='ПТ-САУ ';break;
+			case "SAU":$vid_='САУ ';break;
+			case "all":$vid_='танків ';break;
+		}
+		$vid_ .= $lev; 
 		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:tanks_');
 		if($type=='all'){
-			$tanks=$repository->findTanks('name','',$page);
+			$tanks=$repository->findTanks('name','',$level);
 		}else{	
-			$tanks=$repository->findTanks('name',"t.type='".$type."'",$page);
+			$tanks=$repository->findTanks('name',"t.type='".$type."'",$level);
 		}
-		if($type=='all'){
-			$count=count($repository->findAll());
-		}else{	
-			$count=count($repository->findByType($type));
-		}
-		return $this->render('AcmeTanksBundle::review.html.twig', 
-		array('data'=>$tanks,'vid'=>$vid_,'page'=>$page,'count'=>$count,'type'=>$type));
+		$count = count($tanks);
+		$tanks = array_slice($tanks, ($page - 1)*4, 4);
+		
+		return $this->render('AcmeTanksBundle::review.html.twig',
+		array('data'=>$tanks,'vid'=>$vid_,'page'=>$page,'count'=>$count,'type'=>$type,'level'=>$level));
    }
 	public function ForumAction($tag,$page)
     {		
