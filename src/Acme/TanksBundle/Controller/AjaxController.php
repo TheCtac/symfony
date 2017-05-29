@@ -47,7 +47,7 @@ class AjaxController extends Controller
 		$voit_ = ($user->getRating() > 300 ? 3 :$user->getRating() / 100);
 		
 		$user = array('login'=>$user->getLogin(),'id'=>$user->getId(),'voit'=>$voit_);
-		return json_decode($user);	
+		return json_encode($user);	
 	}
 	public function getTanksByName($param)
 	{

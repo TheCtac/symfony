@@ -96,6 +96,7 @@
         });
 		return false;
 	});
+
 /*
 *ZOOM_ZOOM
 */
@@ -141,9 +142,9 @@ $('#zoom').on('click', function(){
 $('document').ready(function(){
 var kl=0 	 
 var tank = document.getElementById('tank');
+if(tank == null) return;
 var garage=document.getElementById('droppable');
 tank.onmousedown = function(e){
-
   garage.innerHTML = 'Тягни сюди';
   var box = tank.getBoundingClientRect();
   var old_x = box.left;
@@ -246,11 +247,19 @@ function getThisUser(userdata){
 }
 
 function find_(){
-tank_ = document.form1.tank1.value;
-tank_ = tank_.replace(' ','%20');
-document.form1.tank1.value = '';
-url_ = '/tanks/ajax/getTanksByName/'+tank_;
-$('#theme_').load(url_);
+    var tank_ = document.form1.tank1.value;
+    var tank_ = tank_.replace(' ','%20');
+
+    document.form1.tank1.value = '';
+    url_ = '/tanks/ajax/getTanksByName/'+tank_;
+
+    window.onpopstate = null;
+    $('#theme_').load(url_);
+    history.pushState(null, null, location.pathname);
+    window.onpopstate = function(){
+        $('#theme_').load(location.pathname +' #theme_');
+        //document.getElementById('theme_').innerHTML;		
+    };
 }
 
 function change_photo(){
@@ -670,6 +679,24 @@ function str_validate(text_,type){
 		return 'введено некоректне значення ! ';
 	}
 	return '';
+}
+function pageChange(){
+	//var cache = document.getElementById('theme_').innerHTML;
+    window.removeEventListener("popstate", function(){} );
+	var block = document.getElementById('pager').getAttribute('block');
+	var url = document.getElementById('pager').getAttribute('url');
+	var page = this.innerHTML;
+	if(block === null || url === null || page === null){
+		show_mess('Сталась помилка.<br>Спробуйте пізніше');
+		return;
+	}	
+	window.onpopstate = null;
+	$(block).load(url + page +' '+ block);
+    history.pushState(null, null, url + page);
+    window.onpopstate = function(){
+	    $(block).load(location.pathname +' '+ block);
+	    //document.getElementById('theme_').innerHTML;		
+	};
 }
 function show_mess(text_){
 	var elem = "<div id='show_mess'>\

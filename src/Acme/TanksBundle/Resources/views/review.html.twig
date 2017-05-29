@@ -7,8 +7,8 @@
 	{%else%}
 		<div id=new_ onclick='window.scrollTo(0,0);enter()'>Зареєструйтесь щоб додати танк</div>	
 	{%endif%}	
-
 	{% include 'AcmeTanksBundle::add_tank.html.twig' %}
+
 	{%if count != 0%}
 	    {% include 'AcmeTanksBundle::tank.html.twig' %}
 	{%else%}
@@ -18,8 +18,7 @@
 	{% set url_ = '/tanks/review/'~type~'/'~level~'/' %}
 	{% set block_ = '#theme_' %}
 
-	<div id='new_block'></div>
-    знайдено {{count}}<br>
+    <br>знайдено {{count}}
 	{% include 'AcmeTanksBundle::pager.html.twig' %}
 
 {%endblock %}	

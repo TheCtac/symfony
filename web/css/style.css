@@ -229,12 +229,12 @@ input::-webkit-input-placeholder{
 	min-width:1.2%;
 	display:inline-block;
 	margin:0.1%;
+	cursor:pointer;
 }	
 .page:hover{
 	color:black;
 	background:#f90;
 	transition:0.2s;
-	cursor:pointer;
 }
 .this_page{
 	padding:0.25%;
@@ -246,7 +246,6 @@ input::-webkit-input-placeholder{
 	margin:0.1%;
 	color:black;
 	background:#f90;
-	cursor:pointer;
 }
 #new_theme{
 	display:none;
