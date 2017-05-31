@@ -693,6 +693,7 @@ function pageChange(){
 	window.onpopstate = null;
 	$(block).load(url + page +' '+ block);
     history.pushState(null, null, url + page);
+	$('html, body').animate({scrollTop: 0}, 400);
     window.onpopstate = function(){
 	    $(block).load(location.pathname +' '+ block);
 	    //document.getElementById('theme_').innerHTML;		
