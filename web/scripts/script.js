@@ -708,7 +708,8 @@ function show_mess(text_){
 	  $('body').append(elem);
 	  document.getElementById('show_mess').style.display = 'block';
 	  $('#show_mess').animate({
-		  opacity:1
+		  opacity:1,
+		  top ^ '+=30px'
 	  });
 	  $('#show_mess').click(function(){
 		  $('#show_mess').remove();
