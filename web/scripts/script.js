@@ -709,7 +709,7 @@ function show_mess(text_){
 	  document.getElementById('show_mess').style.display = 'block';
 	  $('#show_mess').animate({
 		  opacity:1,
-		  top ^ '+=30px'
+		  top : '+=30px'
 	  });
 	  $('#show_mess').click(function(){
 		  $('#show_mess').remove();
