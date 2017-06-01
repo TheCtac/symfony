@@ -4,7 +4,9 @@ acme_tanks_homepage:
 acme_tanks_homepage2:
     path:     /
     defaults: { _controller: AcmeTanksBundle:Tanks:index }
-
+acme_tanks_study:
+    path:     /tanks/study
+    defaults: { _controller: AcmeTanksBundle:Tanks:study }
 acme_tanks_review:
     path:     /tanks/review/{type}/{level}/{page}
     defaults: { _controller: AcmeTanksBundle:Tanks:review,type:all, page:1, level:0 }

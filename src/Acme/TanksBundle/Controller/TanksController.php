@@ -26,7 +26,9 @@ class TanksController extends Controller
 
 	public function indexAction()
 	{	
-		
+		return $this->render('AcmeTanksBundle::base.html.twig');
+	}
+	public function studyAction(){
 		$file_ = fopen('names.csv','r+');
 		if ($file_) {
 		  $header_arr = explode(';' , preg_replace('/\r|\n/i', '', fgets($file_)));
@@ -81,7 +83,7 @@ class TanksController extends Controller
           } 
           //var_dump($line_ar[1]); 
         }
-		return $this->render('AcmeTanksBundle::base.html.twig',array('names' => $line_ar, 'xml'=>$text));
+		return $this->render('AcmeTanksBundle::study.html.twig',array('names' => $line_ar, 'xml'=>$text));		
 	}
 	public function getThisUser(){
 		$user = 'undefined';
