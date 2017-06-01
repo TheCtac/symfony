@@ -121,7 +121,7 @@ input::-webkit-input-placeholder{
 	position:absolute;
 	visibility:hidden;
 	background:url(../images/black_back.png);
-	width:170px;
+	width:150px;
 	text-align:left;
 	padding-left:15px;
 	z-index:5;
