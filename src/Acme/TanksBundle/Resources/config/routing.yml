@@ -1,14 +1,19 @@
 acme_tanks_homepage:
     path:     /tanks
     defaults: { _controller: AcmeTanksBundle:Tanks:index }
-
+acme_tanks_homepage2:
+    path:     /
+    defaults: { _controller: AcmeTanksBundle:Tanks:index }
+acme_tanks_study:
+    path:     /tanks/study
+    defaults: { _controller: AcmeTanksBundle:Tanks:study }
 acme_tanks_review:
-    path:     /tanks/review/{type}/{page}
-    defaults: { _controller: AcmeTanksBundle:Tanks:review,type:all, page:1 }
+    path:     /tanks/review/{type}/{level}/{page}
+    defaults: { _controller: AcmeTanksBundle:Tanks:review,type:all, page:1, level:0 }
     requirements:
         page: \d+
         type: all|TT|ST|LT|PT|SAU
-
+        level: 0|1|2|3|4|5|6|7|8|9|10
 acme_tanks_forum:
     path:     /tanks/forum/{tag}/{page}
     defaults: { _controller: AcmeTanksBundle:Tanks:forum, tag:all, page:1 }

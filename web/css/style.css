@@ -110,7 +110,7 @@ input::-webkit-input-placeholder{
 #menu_ a{
 	position:relative;
 	margin-right:1%;
-	font-size:28px;
+	font-size:25px;
 	z-index:10;
 }
 #menu_ a:hover{
@@ -156,6 +156,17 @@ input::-webkit-input-placeholder{
 	border-radius:2px;
 	cursor:pointer;
 }
+.base-blocks {
+	width: 96%;
+	height:150px;
+	transform:skew(0deg,3deg);
+	padding : 2%;
+	margin-top:5%;
+	transform:skew(0deg, 3deg);
+}
+.base-blocks div{
+	transform:skew(0deg, -3deg);	
+}
 #new_{
 	position:relative;
 	width:98%;	
@@ -176,7 +187,7 @@ input::-webkit-input-placeholder{
 }
 #add_photo_div{
 	position:relative;
-	border:solid 1px #f90;
+	border:solid 1px #fa0;
 	width:300px;
 	border-radius:2px;
 	overflow:hidden;
@@ -229,12 +240,12 @@ input::-webkit-input-placeholder{
 	min-width:1.2%;
 	display:inline-block;
 	margin:0.1%;
+	cursor:pointer;
 }	
 .page:hover{
 	color:black;
 	background:#f90;
 	transition:0.2s;
-	cursor:pointer;
 }
 .this_page{
 	padding:0.25%;
@@ -246,7 +257,6 @@ input::-webkit-input-placeholder{
 	margin:0.1%;
 	color:black;
 	background:#f90;
-	cursor:pointer;
 }
 #new_theme{
 	display:none;

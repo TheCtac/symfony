@@ -102,8 +102,7 @@ function user_infoAction($data){
 		if($rating_>80){$rat_='мудрець';$col_='#09f';}
 		if($rating_>100){$rat_='гуру';$col_='#b2f';}
 		
-		return $this->render('AcmeTanksBundle::user.html.twig', array('data'=>$user,'rat'=>$rat_,'col'=>$col_));
-		
+		return $this->render('AcmeTanksBundle::user.html.twig', array('data'=>$user,'rat'=>$rat_,'col'=>$col_));		
 }
 function get_cookie($cookie_name){
 		$request = Request::createFromGlobals();
