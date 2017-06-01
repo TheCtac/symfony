@@ -1,0 +1,56 @@
+acme_tanks_homepage:
+    path:     /tanks
+    defaults: { _controller: AcmeTanksBundle:Tanks:index }
+
+acme_tanks_review:
+    path:     /tanks/review/{type}/{page}
+    defaults: { _controller: AcmeTanksBundle:Tanks:review,type:all, page:1 }
+    requirements:
+        page: \d+
+        type: all|TT|ST|LT|PT|SAU
+
+acme_tanks_forum:
+    path:     /tanks/forum/{tag}/{page}
+    defaults: { _controller: AcmeTanksBundle:Tanks:forum, tag:all, page:1 }
+    requirements:
+        page: \d+
+
+acme_tanks_theme:
+    path:     /tanks/theme/{theme}
+    defaults: { _controller: AcmeTanksBundle:Tanks:theme, theme:not}
+    requirements:
+
+acme_tanks_premium:
+    path:     /tanks/prem
+    defaults: { _controller: AcmeTanksBundle:Tanks:prem}
+
+acme_tanks_ajax:
+    path:     /tanks/ajax/{mathod}/{param}
+    defaults: { _controller: AcmeTanksBundle:Ajax:index, mathod:all, param:1 }
+    requirements:
+        class: \w+
+
+acme_user_home:
+    path:     /tanks/home
+    defaults: { _controller: AcmeTanksBundle:Tanks:home }
+
+acme_admin:
+    path:  /tanks/admin
+    defaults: { _controller: AcmeTanksBundle:Tanks:admin }
+acme_registration:	
+    path:  /tanks/registration
+    defaults:  { _controller: AcmeTanksBundle:Tanks:registration}
+acme_tank:	
+    path:  /tanks/tank/{name}
+    defaults:  { _controller: AcmeTanksBundle:Tanks:oneTank}
+acme_user_red:	
+    path:  /tanks/user_red
+    defaults:  { _controller: AcmeTanksBundle:Tanks:userRed}    
+acme_user_brow:
+    path: /tank/users/{name}    
+    defaults:  { _controller: AcmeTanksBundle:Tanks:userBrow, name:myself} 
+    requirements:
+        class: \w+
+acme_user_mess:
+    path: /tank/user_mess/{type}    
+    defaults:  { _controller: AcmeTanksBundle:Tanks:userMess, type:in}    

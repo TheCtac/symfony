@@ -1,0 +1,19 @@
+<div id='menu_'>
+	<div style='float:left;'>
+		<a id='logo' href="{{path('acme_tanks_homepage')}}" >
+			<img class='img_repl' name='logoimg' src="{{ asset('images/logo.png')}}" alt="{{ asset('images/logo2.png')}}" width='202'>
+		</a>
+	</div>
+	<a href="{{path('acme_tanks_premium')}}">преміум магазин</a>&nbsp&nbsp&nbsp&nbsp&nbsp
+	<a id='tank_a' href="{{path('acme_tanks_review',{'type':'all'})}}" onmouseover='openmenu(2)'>огляд танків</a>&nbsp&nbsp&nbsp&nbsp&nbsp 
+	<a href="{{path('acme_tanks_forum')}}">форум</a>
+	<div id='menu_list' onmouseover='openmenu(2)' onmouseout='closemenu(2)'>
+		<br><br><br><br><br>
+		<a href="{{path('acme_tanks_review',{'type':'TT'})}}" onmouseover='openmenu(2)' onmouseout='closemenu(2)'>важкі танки</a><br>	
+		<a href="{{path('acme_tanks_review',{'type':'ST'})}}" onmouseover='openmenu(2)' onmouseout='closemenu(2)'>середні танки</a><br>	
+		<a href="{{path('acme_tanks_review',{'type':'LT'})}}" onmouseover='openmenu(2)' onmouseout='closemenu(2)'>легкі танки</a><br>	
+		<a href="{{path('acme_tanks_review',{'type':'PT'})}}" onmouseover='openmenu(2)' onmouseout='closemenu(2)'>пт-сау</a><br>	
+		<a href="{{path('acme_tanks_review',{'type':'SAU'})}}" onmouseover='openmenu(2)' onmouseout='closemenu(2)'>сау</a><br>	
+	</div>
+	{% include  'AcmeTanksBundle::enter_form.html.twig'%}
+</div>	

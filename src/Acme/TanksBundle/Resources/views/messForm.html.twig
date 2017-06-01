@@ -1,0 +1,16 @@
+<div id='mess'>
+    <div class='close'>X</div><br>
+	<div id = 'messTitle'></div><br>
+	<div style='float:left;text-align:right;width:49%;'>
+	    тема :<br><br>
+		повідомлення :<br>
+	</div>
+	<div style='float:right;text-align:left;width:49%;'>
+	  <form id='messFrom' name='messForm' method='post'>
+	    <input type='text' name='theme' placeholder='hfdf' ><br><br>
+		<textarea id='messArea' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('messArea')};"
+        name='body' placeholder='текст повідомлення' cols='50'rows='4' ></textarea>		
+	  </form>
+	</div><hr>
+	<div class='button' id='messBut' >ВІДПРАВИТИ</div>
+</div>    

@@ -1,0 +1,13 @@
+{%block rating %}
+  <span style='float:right;border:1px solid #fa0;border-radius:5px;padding:0.5%'>
+    <span class = 'vote-plus' style='cursor:pointer;'>
+	  <img class = 'img_repl' src= '{{asset('images/like0.png')}}' alt='{{asset('images/like1.png')}}' height='20'>
+	</span>
+	
+      <font size='5' color='{%if data.rating >0 %} green {%elseif data.rating<0%} red {%else %} white {%endif %}'> {{data.rating }} </font>
+   
+   <span class = 'vote-minus' style='cursor:pointer'>
+	  <img class = 'img_repl' src= '{{asset('images/unlike0.png')}}' alt='{{asset('images/unlike1.png')}}' height='20'>
+	<span>
+  </span>	
+{%endblock %}

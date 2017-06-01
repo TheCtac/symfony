@@ -1,0 +1,28 @@
+﻿		<div class='user'><br>
+		    <a href='{{ path('acme_user_brow', {'type' : data.login}) }}' style='font-size:18'>{{data.login}}<br>
+			    <img width='170px' src='{{asset(data.photo)}}' style='border:1px solid #555;border-radius:2px;padding:3;'>
+			</a><br>
+			<font color='{{col}}'>{{rat}}<br>
+			карма : {{data.rating}} </font><br>
+			{% if data.age is empty or data.age<1%}
+			{% else %}
+				вік:&nbsp;{{data.age}}<br>
+			{%endif %}
+			
+			{% if data.city is empty or data.city==' '%}
+			{% else %}
+				місто:&nbsp;{{data.city}}<br>
+			{%endif %}					
+			стать:&nbsp;
+			{%if data.male=='male' %}
+				чол.
+			{%elseif data.male=='female' %}
+				жін.
+			{%else%}	
+				не вирішив
+			{%endif%}<br>
+			на сайті з&nbsp;{{data.date|date("d.m.Y")}}<br>  			
+			{%if app.request.cookies.has('login') %}
+			    [<g class='mess' name='{{data.login}}'> написати </g>]<br><br>
+			{%endif %}	
+		</div>

@@ -1,0 +1,48 @@
+<div id='add_tank_'><br>
+	<div style='float:left;width:49%;line-height:20px;text-align:right;'>
+		назва танка *<br><br>
+		тип танка *<br><br>
+		рівень *<br><br>
+		броня *<br><br>
+		озброєння *<br><br>
+		швидкість *<br><br>
+		фото *<br><br>
+		історія <br>
+	</div>
+	<div style='float:right;text-align:left;width:49%;'>
+		<form id='new_tank_form' name='add_tank_form' method='post' enctype='multipart/form-data'>
+			<input type='text' name='tank_name_' value='' placeholder='введіть назву'><br><br>
+			<select name='type_' size='1'>
+				<option value='TT'>Важкий танк  </option>
+				<option value='ST'>Середній танк  </option>
+				<option value='LT'>Легкій  танк </option>
+				<option value='PT'>ПТ-САУ  </option>
+				<option value='SAU'>САУ  </option>
+			</select><br><br>
+			<select name='level_' size='1'>
+				<option value='1'>1 </option>
+				<option value='2'>2 </option>
+				<option value='3'>3 </option>
+				<option value='4'>4 </option>
+				<option value='5'>5 </option>
+				<option value='6'>6 </option>
+				<option value='7'>7 </option>
+				<option value='8'>8 </option>
+				<option value='9'>9 </option>
+				<option value='10'>10 </option>
+			</select><br><br>
+			<input type='text' name='tank_armo_' value='' placeholder='кругова броня'><br><br>
+			<input type='text' name='tank_gun_' value='' placeholder='урон за вистріл'><br><br>
+			<input type='text' name='tank_speed_' value='' placeholder='максимальна швидкість'><br><br>			<div id='add_photo_div'>
+				<div style='float:left;width:220px;position:absolute;' id='photo_value'>файл не вибраний</div>
+				<div style='float:right;background:#f90;position:relative;color:black;'>&nbspзавантажити&nbsp </div>
+				<div><input type='file' name='tank_photo_' value='' onchange='add_view.call(this)' accept='image/*'></div>
+			</div><br>
+			<textarea id='commArea' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('commArea')};"
+			name='tank_history_' style='width:300px;height:100px; value='' placeholder='коротка історія про танк'></textarea>
+		</form>
+	</div>
+	<div id='add_new_tank_' style='position:relative;background:#444;width:99%;padding:0.5%;clear:right;'>
+		<div style='position:relative;background:#f90;padding:0.5%;width:25%;left:37.5%;border-radius:3px;border:1px solid #222;font-size:20px;color:black;cursor:pointer;' onclick='add_new_tank_()'> додати танк </div>
+	</div>	
+</div><br>

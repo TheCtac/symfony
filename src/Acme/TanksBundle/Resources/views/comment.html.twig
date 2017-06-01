@@ -1,0 +1,5 @@
+	{% render(controller('AcmeTanksBundle:Functions:user_info',{'data':comm.user})) %}
+	<div id='{{comm.id}}' style='float:left;text-align:left;padding:1.5%;'>
+		{{comm.comm|text_form|raw}}
+	</div>
+	<div style='clear:left;text-align:center;width:100%;border-top:2px solid #fa0;'></div>

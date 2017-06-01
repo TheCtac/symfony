@@ -1,0 +1,39 @@
+{% extends 'AcmeTanksBundle::base.html.twig' %}
+{%block title%}
+		Редагування 
+{%endblock %}	
+{%block theme%}
+		<div id='reg_div'><br>
+			<div style='float:left;text-align:right;width:49%;'>
+				e-mail*<br><br>
+				аватар<br><br>
+				вік<br><br>
+				місто<br><br>
+				стать<br><br>
+				про себе
+			</div>
+			<div style='float:left;text-align:left;width:21%;padding-left:1%;'>
+				<form id='registr' name='registr_form' method='post' enctype='multipart/form-data'>
+					<input type='text' name='email'  value='{{user.email}}' ><br><br>
+					<div id='add_photo_div'>
+						<div style='float:left;width:220;position:absolute;' id='photo_value'>файл не вибраний</div>
+						<div style='float:right;background:#f90;position:relative;color:black;'>&nbspдодати фото&nbsp </div>
+						<div><input type='file' name='user_photo_' onchange='add_view.call(this)' accept='image/*'></div>
+					</div><br>
+					<input type='text' name='age' value='{{user.age}}' ><br><br>
+					<input type='text' name='city'  value='{{user.city}}' ><br><br>
+					<select name='male' size='1'>
+						<option value = 'male' {%if user.male == "male"%} selected {%endif%}>чол.</option>
+						<option value = 'female' {%if user.male == "female"%} selected {%endif%}>жін.</option>
+						<option value = 'thing' {%if user.male == "thing"%} selected {%endif%}>не тисніть на мене</option>
+					</select><br><br>
+					<textarea id='commArea' onkeydown="if(event.keyCode==9){event.preventDefault();addTab('commArea')};"
+					name='about'  cols='50'rows='4' >{{user.about}}</textarea>
+				</form>	
+			</div>
+			<div id='photo_prev' style='float:left;text-align:left;width:auto;'>
+			    <img src='{{asset(user.photo)}}' width='auto'>
+			</div>
+		<div id='send_reg' style='width:98.6%;background:#f90;clear:left;padding:0.7%;cursor:pointer;' onclick='send_red()'>Змінити</div>
+		</div>
+{%endblock%}

@@ -1,0 +1,10 @@
+Log opened at 2017-05-11 09:55:50
+I: Connecting to configured address/port: 127.0.0.1:8000.
+I: Connected to client. :-)
+-> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" fileuri="file:///D:/Denwer/home/localhost/www/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/router_dev.php" language="PHP" xdebug:language_version="7.1.1-dev" protocol_version="1.0" appid="5484" idekey="1"><engine version="2.5.3"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[http://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2017 by Derick Rethans]]></copyright></init>
+
+Log opened at 2017-05-11 11:10:57
+I: Connecting to configured address/port: 127.0.0.1:8000.
+I: Connected to client. :-)
+-> <init xmlns="urn:debugger_protocol_v1" xmlns:xdebug="http://xdebug.org/dbgp/xdebug" fileuri="file:///D:/Denwer/home/localhost/www/Symfony/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/router_dev.php" language="PHP" xdebug:language_version="7.1.1-dev" protocol_version="1.0" appid="1916" idekey="session_name"><engine version="2.5.3"><![CDATA[Xdebug]]></engine><author><![CDATA[Derick Rethans]]></author><url><![CDATA[http://xdebug.org]]></url><copyright><![CDATA[Copyright (c) 2002-2017 by Derick Rethans]]></copyright></init>
+

@@ -1,0 +1,84 @@
+{%extends 'AcmeTanksBundle::base.html.twig'%}
+{%block title %}
+		{{data.login}}s home
+{%endblock %}
+{%block theme %}
+		<div class='user' style='border-right:2px solid #fa0;'><br>
+		    <g style='color:#fa0;font-size:18'>{{data.login}}</g><br>
+			<img width='70%' src='{{asset(data.photo)}}' style='border:1px solid #555;border-radius:2px;padding:3;'><br>
+			<g style='font-size:18px;color:{{col}};'>{{rat}}<br>
+			карма : {{data.rating}} </g><br>
+			{% if data.age is empty or data.age<1%}
+			{% else %}
+				вік:&nbsp;{{data.age}}<br>
+			{%endif %}
+			
+			{% if data.city is empty or data.city==' '%}
+			{% else %}
+				місто:&nbsp;{{data.city}}<br>
+			{%endif %}					
+			стать:&nbsp;
+			{%if data.male=='male' %}
+				чол.
+			{%elseif data.male=='female' %}
+				жін.
+			{%else%}	
+				не вирішив
+			{%endif%}<br>
+			<g style='font-size:15;'>на сайті з&nbsp;{{data.date|date("d.m.Y")}}</g><br><br>
+			про себе : {{data.about}}<br>
+			[<a href = '{{ path('acme_user_red') }}'> редагувати </a>]
+		</div>
+		<div id='info'>
+		    <div id='mess_red'>
+				<input type="checkbox" name="sel_all" value="0"/>v
+				<div id='sel_type'></div>
+			</div>
+			<g style='color:#fa0;font-size:18'>Повідомлення користувача {{data.login}}</g><br>    
+			  <li><a href = '{{ path('acme_user_mess', { 'type' : 'in' } )}}'>
+					<div style='clear:left;margin-left:0%;' id='mess_this' class='mess_type'> вхідні </div>
+			  </a></li>
+			  <li><a href = '{{ path('acme_user_mess', { 'type' : 'proc' } )}}'>
+					<div class='mess_type'> вихідні </div>
+			  </a></li>
+    		  <li><a href = '{{ path('acme_user_mess', { 'type' : 'out' } )}}'>
+					<div class='mess_type'> відправлені </div>
+			  </a></li>
+			<div id='user_mess'>
+			    {% render(controller('AcmeTanksBundle:Tanks:userMess',{'type':'in'})) %}
+			</div><br>
+			<g style='color:#fa0;font-size:18'>Активність користувача {{data.login}}</g><br>  
+			<div style='text-align:left;width:100%;'>
+			  <g onclick = "$('#userThemes').animate( { height:'toggle' } );"><div id='new_'> теми ({{themes|length}} )</div></g>
+			  
+			  <div id='userThemes' style='display:none;'>
+			  {% for theme in themes%}
+			    <div style='background:#222;;padding:1%;margin:0.2%'>
+	              <a href='{{path('acme_tanks_theme',{'theme':theme.name})}}'><font color='#fa0' size='4.5'>{{theme.name}}</font></a>
+		          теги: {{theme.tags|get_tags|raw}};
+		          додано:{{theme.date|date('d.m.Y H:i')}}<br>
+                </div>
+			  {% endfor %}
+			  </div><div style='width:100%;height:3px;'></div>
+			  <g onclick = "$('#userComms').animate( { height:'toggle' } );"><div id='new_'>  коментарі ({{comms|length}})</div></g>
+			  <div id='userComms' style='display:none;'>
+			    {% for comm in comms %}
+			    <div style='background:#222;padding:1%;margin:0.2%'>
+	              <font  color='#fff' size='4.1'>{{comm.comm}} </font><br>
+				  коментар до теми : 
+				  <a href='
+				    {%if comm.type == 'theme' %}
+					  {{path('acme_tanks_theme',{'theme':comm.theme})}}
+					{%else %}  
+					  {{path('acme_tank',{'name':comm.theme})}}
+					{%endif %}  
+				  '>
+				    <font color='#fa0' size='4'>{{comm.theme}}</font>
+			      </a><br>
+		          додано:{{comm.date|date('d.m.Y H:i')}}
+                </div>
+			    {% endfor %}
+			  </div><br>
+		    </div>
+		</div>
+{%endblock %}
