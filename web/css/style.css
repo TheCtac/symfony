@@ -121,7 +121,7 @@ input::-webkit-input-placeholder{
 	position:absolute;
 	visibility:hidden;
 	background:url(../images/black_back.png);
-	width:170px;
+	width:150px;
 	text-align:left;
 	padding-left:15px;
 	z-index:5;
@@ -200,6 +200,7 @@ input::-webkit-input-placeholder{
 	cursor:pointer;
 	width:100%;
 	border:solid 1px #fff;
+  	transform: scale(20);
     	letter-spacing: 10em;     /* IE 9 fix */
     	-ms-transform: scale(20);
 }

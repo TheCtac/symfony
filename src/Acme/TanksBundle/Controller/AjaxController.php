@@ -25,6 +25,7 @@ class AjaxController extends Controller
 		$this->this_user = $this->func->get_cookie('login');
 		$this-> mysqli = new \mysqli("localhost", "root", "", "tanks");
 	}
+
 	public function indexAction($mathod,$param = 0)
 	{	
 		$result_=$this->$mathod($param);
@@ -40,7 +41,6 @@ class AjaxController extends Controller
 		if(empty($login)){
 			return $user;
 		}
-		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
 		$user = $repository->findOneByLogin($login);
 		$voit_ = ($user->getRating() < 1 ? 0.1 :$user->getRating() / 100);

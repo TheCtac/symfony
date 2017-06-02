@@ -108,6 +108,5 @@ function get_cookie($cookie_name){
 		$request = Request::createFromGlobals();
 		$value = $request->cookies->get($cookie_name);
 		return $value;
-
 }
 }

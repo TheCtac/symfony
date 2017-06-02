@@ -1,4 +1,5 @@
 ﻿{%if pages>1 %}
+
 <div id = 'pager' url='{{url_}}' block='{{block_}}'>
 	{% if page!=1%}
 		<div class='page' onclick='pageChange.call(this)'>1</div>
@@ -7,6 +8,7 @@
 		...
 	{%endif%}
 	{% if page-1>1 %}
+
 		<div class='page' onclick='pageChange.call(this)'>{{page-1}}</div>
 	{%endif%}
 	<div class='this_page' onclick='pageChange.call(this)'>{{page}}</div>

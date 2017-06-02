@@ -1,7 +1,5 @@
-// recommit 1
-// recommit 2
-$('document').ready(function(){
 
+$('document').ready(function(){
 /*
 *delete div
 */
@@ -144,6 +142,7 @@ $('#zoom').on('click', function(){
 $('document').ready(function(){
 var kl=0 	 
 var tank = document.getElementById('tank');
+
 if(tank == null) return;
 var garage=document.getElementById('droppable');
 tank.onmousedown = function(e){
@@ -249,6 +248,7 @@ function getThisUser(userdata){
 }
 
 function find_(){
+
     var tank_ = document.form1.tank1.value;
     var tank_ = tank_.replace(' ','%20');
 
