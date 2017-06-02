@@ -1,5 +1,6 @@
 
 $('document').ready(function(){
+// take this
 /*
 *delete div
 */
