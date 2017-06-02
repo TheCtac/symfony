@@ -1,5 +1,6 @@
 
 $('document').ready(function(){
+//some commit
 /*
 *delete div
 */
