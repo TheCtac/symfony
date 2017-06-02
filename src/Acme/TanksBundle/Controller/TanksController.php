@@ -26,6 +26,13 @@ class TanksController extends Controller
 
 	public function indexAction()
 	{	
+		$html = file_get_contents('https://worldoftanks.ru');
+		$pat = array('/href="\//');
+		$repl = array('href="https://worldoftanks.ru/');
+		$html = preg_replace($pat,$repl,$html);
+		$file_ = fopen('news.html','w+');
+		fwrite($file_, $html);	
+		fclose($file_);
 		return $this->render('AcmeTanksBundle::base.html.twig');
 	}
 	public function studyAction(){

@@ -1,6 +1,5 @@
 
-$('document').ready(function(){
-// take this
+$('document').ready(function(){        
 /*
 *delete div
 */

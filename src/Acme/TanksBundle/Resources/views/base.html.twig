@@ -16,11 +16,27 @@
 	</div>
 	{% include  'AcmeTanksBundle::menu.html.twig'%}
 	{%block user_form %} {% endblock%}	
+	<script>
+            $(function() {
+                $('.js-newstime').datetime({'style' : 'relative'});
+            });
+    </script>
 	<div id='theme_'>
 	  {% block theme %}
         <div class='base-blocks' style='background:#fa0'>
-		  <div><h2>Вітаємо на сайті Цистерни.ua</h2></div>
+		  <div><h1>Вітаємо на сайті Цистерни.ua</h1>
+		  <font color='#111' size='5' face="verdana">
+		    тут ви зможете дізнатись остані новини від картошкі,
+		    <br>обговороити з друзями подробицы гри,
+			<br>а також переглянути характеристики танків
+		  </font>			  
 		</div>
+		</div>
+		<h1>новини</h1>
+		<div id='news'></div>
+		<script type="text/javascript">
+		    $('#news').load('news.html .b-imgblock')
+		</script>
       {% endblock %}
 	</div>
 </body>
