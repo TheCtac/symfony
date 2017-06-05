@@ -24,6 +24,7 @@ class AjaxController extends Controller
 		$this -> func = new FunctionsController;
 		$this->this_user = $this->func->get_cookie('login');
 		$this-> mysqli = new \mysqli("localhost", "root", "", "tanks");
+//		$this-> mysqli = new \mysqli("localhost", "id1711110_root", "rapers", "id1711110_tanks");
 	}
 
 	public function indexAction($mathod,$param = 0)

@@ -21,6 +21,7 @@ class TanksController extends Controller
 	{
 		$this -> func = new FunctionsController;
 		$this->mysqli = new \mysqli("localhost", "root", "", "tanks");
+//		$this-> mysqli = new \mysqli("localhost", "id1711110_root", "rapers", "id1711110_tanks");
 		$this->this_user = $this->func->get_cookie('login');
 	}
 
