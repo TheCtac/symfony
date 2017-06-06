@@ -6,7 +6,7 @@
 		</a>
 	{%endif%}	
 	<a href='{{path('acme_tanks_theme',{'theme':data.name})}}'><font color='#fa0' size='5'>{{data.name}}</font></a><br>
-		автор:<a href='users.php?user_=".$author_."'>{{data.author}}</a>
+		автор:<a href='{{ path('acme_user_brow', {'user' : data.author}) }}'>{{data.author}}</a>
 		теги: {{data.tags|get_tags|raw}};
 		додано:{{data.date|date('d.m.Y H:i')}}
 		<br>	{{data.body|slice(0,100)}}...

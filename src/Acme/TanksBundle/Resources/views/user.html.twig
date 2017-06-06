@@ -1,5 +1,5 @@
 ﻿		<div class='user'><br>
-		    <a href='{{ path('acme_user_brow', {'type' : data.login}) }}' style='font-size:18'>{{data.login}}<br>
+		    <a href='{{ path('acme_user_brow', {'user' : data.login}) }}' style='font-size:18'>{{data.login}}<br>
 			    <img width='170px' src='{{asset(data.photo)}}' style='border:1px solid #555;border-radius:2px;padding:3;'>
 			</a><br>
 			<font color='{{col}}'>{{rat}}<br>

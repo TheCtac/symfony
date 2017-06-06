@@ -3,31 +3,7 @@
 		{{data.login}}s home
 {%endblock %}
 {%block theme %}
-		<div class='user' style='border-right:2px solid #fa0;'><br>
-		    <g style='color:#fa0;font-size:18'>{{data.login}}</g><br>
-			<img width='70%' src='{{asset(data.photo)}}' style='border:1px solid #555;border-radius:2px;padding:3;'><br>
-			<g style='font-size:18px;color:{{col}};'>{{rat}}<br>
-			карма : {{data.rating}} </g><br>
-			{% if data.age is empty or data.age<1%}
-			{% else %}
-				вік:&nbsp;{{data.age}}<br>
-			{%endif %}
-			
-			{% if data.city is empty or data.city==' '%}
-			{% else %}
-				місто:&nbsp;{{data.city}}<br>
-			{%endif %}					
-			стать:&nbsp;
-			{%if data.male=='male' %}
-				чол.
-			{%elseif data.male=='female' %}
-				жін.
-			{%else%}	
-				не вирішив
-			{%endif%}<br>
-			<g style='font-size:15;'>на сайті з&nbsp;{{data.date|date("d.m.Y")}}</g><br><br>
-			про себе : {{data.about}}<br>
-		</div>
+        {% render(controller('AcmeTanksBundle:Functions:user_info',{'data': data.login})) %}
 		<div id='info'>
 			<g style='color:#fa0;font-size:18'>Активність користувача {{data.login}}</g><br>  
 			<div style='text-align:left;width:100%;'>

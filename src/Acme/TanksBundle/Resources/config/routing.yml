@@ -52,8 +52,8 @@ acme_user_red:
     path:  /tanks/user_red
     defaults:  { _controller: AcmeTanksBundle:Tanks:userRed}    
 acme_user_brow:
-    path: /tank/users/{name}    
-    defaults:  { _controller: AcmeTanksBundle:Tanks:userBrow, name:myself} 
+    path: /tanks/users/{user}    
+    defaults:  { _controller: AcmeTanksBundle:Tanks:userBrow, user:myself} 
     requirements:
         class: \w+
 acme_user_mess:

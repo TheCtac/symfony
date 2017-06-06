@@ -27,8 +27,8 @@ class TanksController extends Controller
 
 	public function indexAction()
 	{	
-		if (@file_get_contents('https://worldooftanks.ru') === FALSE){
-		    $html = "<div class='b-imgblock'>site not available</div>";
+		if (@file_get_contents('https://worldoftanks.ru') === FALSE){
+		    $html = "<div class='b-imgblock'><b>site not available</b></div>";
         } else {
 		    $html = file_get_contents('https://worldoftanks.ru');
 		}
@@ -290,5 +290,20 @@ class TanksController extends Controller
 		$mess=$repository->findAllUserMess($where,'');
 
 		return $this->render('AcmeTanksBundle::mess_list.html.twig', array('data'=>$mess));
+	}
+	public function userBrowAction($user){
+	    
+		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
+		$user = $repository->findOneByLogin($user);
+		if (!$user){
+		    return $this->render('AcmeTanksBundle::nofound.html.twig');			
+		}
+		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:themes');
+		$themes = $repository->findByAuthor($user->getLogin());
+		
+		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:comments');
+		$comms = $repository->findByUser($user->getLogin());
+		
+		return $this->render('AcmeTanksBundle::userBrow.html.twig', array('data'=>$user, 'themes'=>$themes, 'comms'=>$comms));
 	}
 }
