@@ -27,7 +27,11 @@ class TanksController extends Controller
 
 	public function indexAction()
 	{	
-		$html = file_get_contents('https://worldoftanks.ru');
+		if (@file_get_contents('https://worldooftanks.ru') === FALSE){
+		    $html = "<div class='b-imgblock'>site not available</div>";
+        } else {
+		    $html = file_get_contents('https://worldoftanks.ru');
+		}
 		$pat = array('/href="\//');
 		$repl = array('href="https://worldoftanks.ru/');
 		$html = preg_replace($pat,$repl,$html);
