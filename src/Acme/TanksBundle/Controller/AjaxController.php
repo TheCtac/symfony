@@ -376,6 +376,7 @@ class AjaxController extends Controller
 		$login_= $this->mysqli->real_escape_string($_POST['login']);
 		$id_= intval($_POST['id']);
 		$voit_= floatval($_POST['voit']);
+		$voit_ = round($voit_, 1, PHP_ROUND_HALF_DOWN);
 		$theme_= $this->mysqli->real_escape_string($_POST['theme']);
 		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:themes');

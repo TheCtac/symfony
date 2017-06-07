@@ -17,6 +17,7 @@
 	{% include  'AcmeTanksBundle::messForm.html.twig'%}
 	{% include  'AcmeTanksBundle::menu.html.twig'%}
 	{%block user_form %} {% endblock%}	
+	<div id = 'arrow' scroll = '0'><img width = '40' src = "{{ asset('images/arrow.png')}}" ></div>
 	<div id='theme_'>
 	  {% block theme %}
         <div class='base-blocks' style='background:#fa0'>
@@ -31,7 +32,9 @@
 		<h1>новини</h1>
 		<div id='news'></div>
 		<script type="text/javascript">
-		    $('#news').load('news.html .b-imgblock')
+		    $('#news').load('news.html .b-imgblock', function(){
+			    $('#news a').attr("target", "_blank");
+			});            
 		</script>
       {% endblock %}
 	</div>
