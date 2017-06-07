@@ -440,7 +440,7 @@ class AjaxController extends Controller
 		$theme_ = $this->mysqli->real_escape_string($_POST['theme']);
 		$body_ = $this->mysqli->real_escape_string($_POST['body']);
 		
-		$user = $this->getThisUser();
+		$user = json_decode($this->getThisUser(), true);
 		$from_ = $user['id'];
 
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');

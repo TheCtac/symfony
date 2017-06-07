@@ -6,7 +6,6 @@
 	<div id='scroll' style='position:fixed;top:0;'></div>
 	{%if data%}
 		{#ТІЛО ТЕМИ#}
-		{% include  'AcmeTanksBundle::messForm.html.twig'%}
 		<div id='theme_name' style='text-align:center;width:100%;height:50px;border-bottom:2px solid #fa0;font-size:22px;color:#fa0'>{{data.name}}</div>
 		{% set author=data.author %}
 		{% render(controller('AcmeTanksBundle:Functions:user_info',{'data':author})) %}

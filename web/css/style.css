@@ -84,6 +84,7 @@ input::-webkit-input-placeholder{
 	overflow:hidden;
 	min-width:250px;
 	opacity:0;
+	z-index:101;
 }
 #content{
 	position:relative;
@@ -377,6 +378,7 @@ tr:hover{
 	//box-shadow: 3px 3px 20px #fa0;
 	overflow:hidden;
 	min-width:250px;
+	z-index:100;
 }
 .close {
 	border:1.5px solid #fa0;

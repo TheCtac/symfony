@@ -4,11 +4,11 @@ $('document').ready(function(){
 *delete div
 */
   $('.close').click(function(){
-	  var elem = this.parentNode;
-	  
+	  var elem = this.parentNode;	  
 	  $(elem).animate({
 		  opacity:0,
-		  display:'none'
+		  display:'none',
+		  top : '-=30px'
 	  });
   });  
 
@@ -36,12 +36,16 @@ $('document').ready(function(){
   $('.mess').click(function(){
 	  $('#messTitle').empty();
  	  var name = this.getAttribute('name');
-	  if ( document.getElementById('theme_name') != 'undefined')
+	  if ( document.getElementById('theme_name') != 'undefined' && document.getElementById('theme_name') != null)
 	  {
 		document.messForm.theme.value = document.getElementById('theme_name').innerHTML; 
 	  }
    	  document.getElementById('mess').style.display = 'block';
-   	  document.getElementById('mess').style.opacity = 1;
+	  $('#mess').animate({
+		  opacity:1,
+		  top : '+=30px'
+	  });
+   	  //document.getElementById('mess').style.opacity = 1;
 	  $('#messTitle').prepend('Повідомлення користувачу ' + name);
 	  document.getElementById('messBut').setAttribute('name',name);
   });
@@ -65,7 +69,8 @@ $('document').ready(function(){
 		type:'POST',
 		success:function(retData){
 		    $('#mess').animate({
-		      opacity:0,
+		      top: '-=30px'
+			  opacity:0,
 		      display:'none'
 	        });
 			show_mess(retData);
