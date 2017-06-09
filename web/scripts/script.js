@@ -4,15 +4,39 @@ $('document').ready(function(){
 *delete div
 */
   $('.close').click(function(){
-	  var elem = this.parentNode;
-	  
+	  var elem = this.parentNode;	  
 	  $(elem).animate({
 		  opacity:0,
-		  display:'none'
+		  display:'none',
+		  top : '-=30px'
 	  });
   });  
-
-
+/*
+* up-down arrow
+*/
+    window.onscroll = function() {
+        var height_ = document.documentElement.clientHeight;
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+		if (scrolled > height_ && arrow.style.display != 'block'){
+    		arrow.style.display = 'block';
+			$('#arrow').animate({
+		        opacity:1,
+		        top : '+=20px'
+	        });
+        }
+    }
+	$('#arrow').click(function(){
+        var height_ = document.documentElement.clientHeight;
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+		var arrow = document.getElementById('arrow');
+		var scrollTo = arrow.getAttribute('scroll');
+		if (Math.abs( scrollTo - scrolled ) > 400 ){
+			arrow.setAttribute('scroll', scrolled);
+		}
+		$('html, body').animate({scrollTop: scrollTo}, 400);
+		
+		
+	});
 /*
 *  src-alt change
 */
@@ -36,12 +60,16 @@ $('document').ready(function(){
   $('.mess').click(function(){
 	  $('#messTitle').empty();
  	  var name = this.getAttribute('name');
-	  if ( document.getElementById('theme_name') != 'undefined')
+	  if ( document.getElementById('theme_name') != 'undefined' && document.getElementById('theme_name') != null)
 	  {
 		document.messForm.theme.value = document.getElementById('theme_name').innerHTML; 
 	  }
    	  document.getElementById('mess').style.display = 'block';
-   	  document.getElementById('mess').style.opacity = 1;
+	  $('#mess').animate({
+		  opacity:1,
+		  top : '+=30px'
+	  });
+   	  //document.getElementById('mess').style.opacity = 1;
 	  $('#messTitle').prepend('Повідомлення користувачу ' + name);
 	  document.getElementById('messBut').setAttribute('name',name);
   });
@@ -65,7 +93,8 @@ $('document').ready(function(){
 		type:'POST',
 		success:function(retData){
 		    $('#mess').animate({
-		      opacity:0,
+		      top: '-=30px',
+			  opacity:0,
 		      display:'none'
 	        });
 			show_mess(retData);
@@ -95,6 +124,13 @@ $('document').ready(function(){
 			}
         });
 		return false;
+	});
+/*
+*mess_brow
+*/
+    $('.mess_item	').click(function(){
+		var id = this.getAttribute('id');
+	    $('#user_mess').load('/tanks/ajax/messBrow/' + id);	
 	});
 
 /*

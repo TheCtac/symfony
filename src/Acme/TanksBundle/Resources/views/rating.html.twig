@@ -6,8 +6,8 @@
 	
       <font size='5' color='{%if data.rating >0 %} green {%elseif data.rating<0%} red {%else %} white {%endif %}'> {{data.rating }} </font>
    
-   <span class = 'vote-minus' style='cursor:pointer'>
+    <span class = 'vote-minus' style='cursor:pointer'>
 	  <img class = 'img_repl' src= '{{asset('images/unlike0.png')}}' alt='{{asset('images/unlike1.png')}}' height='20'>
-	<span>
+    </span>
   </span>	
 {%endblock %}

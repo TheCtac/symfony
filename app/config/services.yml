@@ -7,12 +7,9 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-    app.twig_extension:
+
+    twig_extension:
         class: AppBundle\Twig\AppExtension
         public: false
         tags:
             - { name: twig.extension }
-    functions:
-        class:  Acme\TanksBundle\Controller\FunctionsController
-        calls:
-            - [setContainer, ["@service_container"]]

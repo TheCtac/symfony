@@ -38,7 +38,7 @@ class AjaxController extends Controller
 	}
 	public function getThisUser(){
 		$user = 'undefined';
-		$login = $this->func->get_cookie('login');
+		$login = $this->this_user;
 		if(empty($login)){
 			return $user;
 		}
@@ -376,6 +376,7 @@ class AjaxController extends Controller
 		$login_= $this->mysqli->real_escape_string($_POST['login']);
 		$id_= intval($_POST['id']);
 		$voit_= floatval($_POST['voit']);
+		$voit_ = round($voit_, 1, PHP_ROUND_HALF_DOWN);
 		$theme_= $this->mysqli->real_escape_string($_POST['theme']);
 		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:themes');
@@ -440,7 +441,7 @@ class AjaxController extends Controller
 		$theme_ = $this->mysqli->real_escape_string($_POST['theme']);
 		$body_ = $this->mysqli->real_escape_string($_POST['body']);
 		
-		$user = $this->getThisUser();
+		$user = json_decode($this->getThisUser(), true);
 		$from_ = $user['id'];
 
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
@@ -470,6 +471,32 @@ class AjaxController extends Controller
 		$em->flush(); 	
 		
 		return('Ваше повідомлення доставлено !');
+	}
+	public function messBrow($id = 0){
+		$err_ = 0;
+		$id = intval($id);
+		if ($id == 0){
+			$err_ = 1;
+		}
+		$user = $this->getThisUser();
+		if ($user == 'undefined'){
+			$err_ = 0;
+		}
+		$user = json_decode($user, true);
+		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:messages');
+		$mess = $repository->findOneById($id);
+		if( !$mess ){
+			$err_ = 1;
+		}
+		if ($err_ ==1){
+			return 'ПОВІДОМЛЕННЯ НЕ ЗНАЙДЕНО !';
+		}
+		if ( $user['id'] != $mess->getFromId() and $user['id'] != $mess->getToId() ){
+			return $user['id'].'НЕ ВАРТО ЧИТАТИ ЧУЖІ ЛИСТИ !';
+		}
+		$login = $this->func->getUserLogin($mess->getFromId());
+		return $login;
+		return $this->renderView('AcmeTanksBundle::message.html.twig',array('mess'=>$mess));
 	}
 	
 }
