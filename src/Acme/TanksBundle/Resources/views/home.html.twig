@@ -29,6 +29,7 @@
 			про себе : {{data.about}}<br>
 			[<a href = '{{ path('acme_user_red') }}'> редагувати </a>]
 		</div>
+		
 		<div id='info'>
 		    <div id='mess_red'>
 				<input type="checkbox" name="sel_all" value="0"/>v
@@ -47,6 +48,7 @@
 			<div id='user_mess'>
 			    {% render(controller('AcmeTanksBundle:Tanks:userMess',{'type':'in'})) %}
 			</div><br>
+			
 			<g style='color:#fa0;font-size:18'>Активність користувача {{data.login}}</g><br>  
 			<div style='text-align:left;width:100%;'>
 			  <g onclick = "$('#userThemes').animate( { height:'toggle' } );"><div id='new_'> теми ({{themes|length}} )</div></g>

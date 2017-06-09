@@ -5,14 +5,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Acme\TanksBundle\Entity\users;
 use Acme\TanksBundle\Entity\ratings;
 use Acme\TanksBundle\Entity\messages;
-use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\ORM\EntityManager;
 
 class FunctionsController extends Controller
 {
+
 function clear_string($str_){
-	$tags_=array("select"=>"","select"=>"","="=>"","+"=>"","-"=>"","*"=>"","/"=>"","|"=>"","\\"=>"");
+	$tags_=array("select"=>"", "select"=>"", "="=>"", "+"=>"", "-"=>"", "*"=>"", "/"=>"", "|"=>"", "\\"=>"");
 	$str_=strip_tags($str_);	
 	$str_=trim($str_);
 	$str_=strtr($str_,$tags_);
@@ -90,23 +91,32 @@ function CodeGen($length=6){
 }
 function user_infoAction($data){
 
-		$author=$data;
-		$repository =$this->getDoctrine()->getRepository('AcmeTanksBundle:users');
-		$user=$repository->findOneByLogin($author);
+	$author=$data;
+	$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
+	$user=$repository->findOneByLogin($author);
+	
+	$rat_='салага';$col_='#f11';
+	$rating_=$user->getRating();
+	if($rating_>20){$rat_='бувалий';$col_='#f90';}
+	if($rating_>40){$rat_='просунутий';$col_='#ff0';}
+	if($rating_>60){$rat_='знаток';$col_='#4f4';}
+	if($rating_>80){$rat_='мудрець';$col_='#09f';}
+	if($rating_>100){$rat_='гуру';$col_='#b2f';}
 		
-		$rat_='салага';$col_='#f11';
-		$rating_=$user->getRating();
-		if($rating_>20){$rat_='бувалий';$col_='#f90';}
-		if($rating_>40){$rat_='просунутий';$col_='#ff0';}
-		if($rating_>60){$rat_='знаток';$col_='#4f4';}
-		if($rating_>80){$rat_='мудрець';$col_='#09f';}
-		if($rating_>100){$rat_='гуру';$col_='#b2f';}
-		
-		return $this->render('AcmeTanksBundle::user.html.twig', array('data'=>$user,'rat'=>$rat_,'col'=>$col_));		
+	return $this->render('AcmeTanksBundle::user.html.twig', array('data'=>$user,'rat'=>$rat_,'col'=>$col_));		
 }
 function get_cookie($cookie_name){
-		$request = Request::createFromGlobals();
-		$value = $request->cookies->get($cookie_name);
-		return $value;
+	$request = Request::createFromGlobals();
+	$value = $request->cookies->get($cookie_name);
+	return $value;
+}
+function getUserLogin($id = 0){
+	$id = intval($id);
+	$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
+	$user=$repository->findOneById($id);
+	if (!$user){
+		return 'невідомий';
+	}
+	return $user->getLogin();
 }
 }

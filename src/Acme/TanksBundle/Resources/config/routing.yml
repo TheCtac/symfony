@@ -31,7 +31,7 @@ acme_tanks_premium:
 
 acme_tanks_ajax:
     path:     /tanks/ajax/{mathod}/{param}
-    defaults: { _controller: AcmeTanksBundle:Ajax:index, mathod:all, param:1 }
+    defaults: { _controller: AcmeTanksBundle:Ajax:index, mathod:all, param:0 }
     requirements:
         class: \w+
 
@@ -57,5 +57,9 @@ acme_user_brow:
     requirements:
         class: \w+
 acme_user_mess:
-    path: /tank/user_mess/{type}    
-    defaults:  { _controller: AcmeTanksBundle:Tanks:userMess, type:in}    
+    path: /tanks/user_mess/{type}    
+    defaults:  { _controller: AcmeTanksBundle:Tanks:userMess, type:in}
+acme_test:
+    path: /tanks/test    
+    defaults:  { _controller: AcmeTanksBundle:Functions:getUserLogin}
+    

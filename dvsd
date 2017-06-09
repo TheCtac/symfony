@@ -1,0 +1,21 @@
+* 0f10790 2017-05-29 | history api used (HEAD -> master, origin/master) [TheCtac]
+*   cbf9b84 2017-05-26 | Merge branch 'master' of git@github.com:TheCtac/symfony.git [TheCtac]
+[32m|[m[33m\[m  
+[32m|[m * e5f79b8 2017-05-26 | Create cloudFile [TheCtac]
+[32m|[m *   ce8fb2a 2017-05-25 | Merge pull request #1 from TheCtac/sec_branch [TheCtac]
+[32m|[m [34m|[m[35m\[m  
+[32m|[m [34m|[m *   4dd2f6b 2017-05-25 | Merge branch 'master' into sec_branch [TheCtac]
+[32m|[m [34m|[m [36m|[m[34m\[m  
+[32m|[m [34m|[m [36m|[m[34m/[m  
+[32m|[m [34m|[m[34m/[m[36m|[m   
+[32m|[m * [36m|[m 58f557e 2017-05-25 | Update index.php [TheCtac]
+[32m|[m [1;31m|[m * 135597f 2017-05-25 | added 'say hello' [TheCtac]
+[32m|[m [1;31m|[m[1;31m/[m  
+* [1;31m|[m 1f3b03d 2017-05-26 | level-link done, reveiw remaked [TheCtac]
+[1;31m|[m[1;31m/[m  
+* c41b6c0 2017-05-23 | web added (origin2/master) [TheCtac]
+* e5198d0 2017-05-23 | created alias [TheCtac]
+* f1ca8ef 2017-05-23 | some changes [TheCtac]
+* a871659 2017-05-23 | some changes [TheCtac]
+* 1a78f52 2017-05-23 | added tanksbundle [TheCtac]
+* 8c1c420 2017-05-23 | controllers added [TheCtac]

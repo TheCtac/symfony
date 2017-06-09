@@ -125,6 +125,13 @@ $('document').ready(function(){
         });
 		return false;
 	});
+/*
+*mess_brow
+*/
+    $('.mess_item	').click(function(){
+		var id = this.getAttribute('id');
+	    $('#user_mess').load('/tanks/ajax/messBrow/' + id);	
+	});
 
 /*
 *ZOOM_ZOOM

@@ -425,7 +425,8 @@ tr:hover{
 }
 #user_mess {
 	clear:left;
-	background:#222;	
+	background:#222;
+    text-align:left;
 }
 .mess_item {
 	text-align:left;
@@ -480,14 +481,17 @@ tr:hover{
 .b-imgblock_statistic a{
 	font-size:13px;
 }
+.b-imgblock_link {
+	font-size:16px;
+}
 #arrow {
 	display:none;
 	opacity:0;
 	width:50px;
 	height:50px;
 	position:fixed;
-	right:70px;
-	bottom:70px;
+	right:2em;
+	bottom:4em;
 	border: 2px solid #444;
 	border-radius:5px;
 	padding-top:10px;
@@ -496,5 +500,8 @@ tr:hover{
 #arrow:hover {
 	border: 2px solid #fa0;	
 	transition:0.3s;
+}
+#message {
+	margin:1%;
 }
 
