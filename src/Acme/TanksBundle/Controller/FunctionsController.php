@@ -12,6 +12,13 @@ use Doctrine\ORM\EntityManager;
 class FunctionsController extends Controller
 {
 
+    protected $entityManager;
+
+    public function __construct($entityManager = null)
+    {
+        $this->entityManager = $entityManager;
+    }
+	
 function clear_string($str_){
 	$tags_=array("select"=>"", "select"=>"", "="=>"", "+"=>"", "-"=>"", "*"=>"", "/"=>"", "|"=>"", "\\"=>"");
 	$str_=strip_tags($str_);	
@@ -112,7 +119,7 @@ function get_cookie($cookie_name){
 }
 function getUserLogin($id = 0){
 	$id = intval($id);
-	$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
+	$repository = $this->entityManager->getRepository('AcmeTanksBundle:users');
 	$user=$repository->findOneById($id);
 	if (!$user){
 		return 'невідомий';

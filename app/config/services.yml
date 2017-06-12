@@ -13,3 +13,8 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+    functions:
+        class: Acme\TanksBundle\Controller\FunctionsController
+        arguments:
+            entity_manager: "@doctrine.orm.entity_manager"

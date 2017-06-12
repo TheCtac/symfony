@@ -43,25 +43,12 @@ class AppExtension extends \Twig_Extension
     return $count;
     }
     function getUserLogin($id){
-        $db = new db_controller;
-        $user = $db->userLogin($id);
+       $func = new FunctionsController();
+       $user = $func->getUserLogin($id);
     return $user;
     }   
     public function getName()
     {
         return 'app_extension';
-    }
-}
-class db_controller extends Controller
-{
-    
-    function userLogin($id){
-        $id = intval($id);
-        $repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
-        $user=$repository->findOneById($id);
-        if (!$user){
-            return 'невідомий';
-        }
-    return $user->getLogin();
     }
 }

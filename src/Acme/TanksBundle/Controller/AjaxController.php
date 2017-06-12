@@ -491,11 +491,11 @@ class AjaxController extends Controller
 		if ($err_ ==1){
 			return 'ПОВІДОМЛЕННЯ НЕ ЗНАЙДЕНО !';
 		}
+		
 		if ( $user['id'] != $mess->getFromId() and $user['id'] != $mess->getToId() ){
 			return $user['id'].'НЕ ВАРТО ЧИТАТИ ЧУЖІ ЛИСТИ !';
 		}
-		$login = $this->func->getUserLogin($mess->getFromId());
-		return $login;
+		//$login = $this->container->get('functions')->getUserLogin($mess->getFromId());
 		return $this->renderView('AcmeTanksBundle::message.html.twig',array('mess'=>$mess));
 	}
 	
