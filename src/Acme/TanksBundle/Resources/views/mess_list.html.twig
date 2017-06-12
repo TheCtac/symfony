@@ -1,7 +1,0 @@
-{%for data in data%}
-<div class='mess_item' id='{{data.id}}'>
-  <div style='width:20%;float:left;'><input type="checkbox" name="selected" value="0">&nbsp {{data.fromId |slice(0,30) }} </div>
-  {{data.theme}} - {{data.body|slice(0,100)}}...
-  <div style='float:right'>{{data.sendDate|date('d.m.Y H:i')}}</div>
-</div>
-{%endfor%}

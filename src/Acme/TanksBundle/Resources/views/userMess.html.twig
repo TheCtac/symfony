@@ -1,0 +1,13 @@
+{%for data in data%}
+{% if data.typeMess == 1 and data.ToId == user.id%}
+    <div class='mess_item new-mess' id='{{data.id}}'>
+{% else%}
+    <div class='mess_item' id='{{data.id}}'>
+{% endif%}
+    <div style='width:20%;float:left;'>
+        <input type="checkbox" name="selected" value="0">&nbsp {{getUserLogin(data.fromId) |slice(0,30) }} 
+    </div>
+    {{data.theme}} - {{data.body|slice(0,100)}}...
+    <div style='float:right'>{{data.sendDate|date('d.m.Y H:i')}}</div>
+</div>
+{%endfor%}

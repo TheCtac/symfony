@@ -47,7 +47,7 @@ class AjaxController extends Controller
 		$voit_ = ($user->getRating() < 1 ? 0.1 :$user->getRating() / 100);
 		$voit_ = ($user->getRating() > 300 ? 3 :$user->getRating() / 100);
 		
-		$user = array('login'=>$user->getLogin(),'id'=>$user->getId(),'voit'=>$voit_);
+		$user = array('login'=>$user->getLogin(),'id'=>$user->getId(),'voit'=>$voit_, 'photo'=>$user->getPhoto());
 		return json_encode($user);	
 	}
 	public function getTanksByName($param)
@@ -495,7 +495,16 @@ class AjaxController extends Controller
 		if ( $user['id'] != $mess->getFromId() and $user['id'] != $mess->getToId() ){
 			return $user['id'].'НЕ ВАРТО ЧИТАТИ ЧУЖІ ЛИСТИ !';
 		}
+<<<<<<< HEAD
 		//$login = $this->container->get('functions')->getUserLogin($mess->getFromId());
+=======
+		if ($mess->getTypeMess() == 1 and $mess->getToId() == $user['id']){
+	 	    $mess->setTypeMess(2);
+	    	$em = $this->getDoctrine()->getEntityManager();
+		    $em->persist($mess);
+		    $em->flush(); 	            
+		}	
+>>>>>>> 8ecc14b76ae25cdb1869256d758f6825c03cd74a
 		return $this->renderView('AcmeTanksBundle::message.html.twig',array('mess'=>$mess));
 	}
 	
