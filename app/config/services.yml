@@ -12,3 +12,5 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+        arguments: 
+            entity_manager: "@doctrine.orm.entity_manager"

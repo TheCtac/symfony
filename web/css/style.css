@@ -440,6 +440,14 @@ tr:hover{
 	background:#444;
 	transition:0.3s;
 }
+.new-mess {
+	text-align:left;
+	width:98.4%;
+	padding:0.8%;
+	border-bottom:1px solid #888;
+	cursor:pointer;
+	background:#c70;
+}
 #mess_red {
 	float:left;
 	text-align:left;

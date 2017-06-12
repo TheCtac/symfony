@@ -289,7 +289,7 @@ class TanksController extends Controller
 		$repository =$this->getDoctrine()->getRepository('AcmeTanksBundle:messages');
 		$mess=$repository->findAllUserMess($where,'');
 
-		return $this->render('AcmeTanksBundle::mess_list.html.twig', array('data'=>$mess));
+		return $this->render('AcmeTanksBundle::userMess.html.twig', array('data'=>$mess, 'user'=>$user));
 	}
 	public function userBrowAction($user){
 	    

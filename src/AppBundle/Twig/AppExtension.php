@@ -6,7 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AppExtension extends \Twig_Extension
 {   
-    public function getFilters()
+    protected $entityManager;
+
+    public function __construct($entityManager = null)
+	{
+        $this->entityManager = $entityManager;
+    }
+	public function getFilters()
     {
         return array(
             new \Twig_SimpleFilter('get_tags', array($this, 'get_tags')),
@@ -43,25 +49,16 @@ class AppExtension extends \Twig_Extension
     return $count;
     }
     function getUserLogin($id){
-        $db = new db_controller;
-        $user = $db->userLogin($id);
-    return $user;
-    }   
-    public function getName()
-    {
-        return 'app_extension';
-    }
-}
-class db_controller extends Controller
-{
-    
-    function userLogin($id){
         $id = intval($id);
-        $repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
+        $repository = $this->entityManager->getRepository('AcmeTanksBundle:users');
         $user=$repository->findOneById($id);
         if (!$user){
             return 'невідомий';
         }
     return $user->getLogin();
+    }
+    public function getName()
+    {
+        return 'app_extension';
     }
 }

@@ -128,7 +128,7 @@ $('document').ready(function(){
 /*
 *mess_brow
 */
-    $('.mess_item	').click(function(){
+    $('#user_mess').on('click', '.mess_item', function(){
 		var id = this.getAttribute('id');
 	    $('#user_mess').load('/tanks/ajax/messBrow/' + id);	
 	});
