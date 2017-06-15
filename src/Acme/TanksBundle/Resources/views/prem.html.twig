@@ -1,12 +1,12 @@
 {% extends 'AcmeTanksBundle::base.html.twig' %}
 {%block title%}
-		Преміум магазин
+		{%trans%}преміум магазин{%endtrans%}
 {%endblock %}	
 {%block theme%}
 		<div id='zoom'><img width=100% src='{{ asset('images/zoom.png') }}'/></div>
-		<b>КУРС ВАЛЮТ</b><br>
+		<b>{%trans%}КУРС ВАЛЮТ{%endtrans%}</b><br>
 		{%for data in data%}
-			{{data.ccy}} : купівля {{data.buy}} продаж {{data.sale}}<br>
+			{{data.ccy}} : {%trans%}купівля{%endtrans%} {{data.buy}} {%trans%}продаж{%endtrans%} {{data.sale}}<br>
 		{%endfor%}
 		<br><br>
 		<img zoomable src = '{{ asset('images/amx 50b.jpg') }}' width='100px'/>

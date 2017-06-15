@@ -110,13 +110,4 @@ function get_cookie($cookie_name){
 	$value = $request->cookies->get($cookie_name);
 	return $value;
 }
-function getUserLogin($id = 0){
-	$id = intval($id);
-	$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:users');
-	$user=$repository->findOneById($id);
-	if (!$user){
-		return 'невідомий';
-	}
-	return $user->getLogin();
-}
 }

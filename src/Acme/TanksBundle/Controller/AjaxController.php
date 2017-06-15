@@ -50,22 +50,7 @@ class AjaxController extends Controller
 		$user = array('login'=>$user->getLogin(),'id'=>$user->getId(),'voit'=>$voit_, 'photo'=>$user->getPhoto());
 		return json_encode($user);	
 	}
-	public function getTanksByName($param)
-	{
-		$functions = $this -> func;	
-		$param=$functions->u0_to_cyr($param);
-		
-		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:tanks_');	
-		$tanks=$repository->findTanks('name',"t.name like '%".$param."%'",0);
-		if(count($tanks)>0)
-		{
-			echo "<br><t style='font-size:20px;color:#fa0'>знайдено ".count($tanks)." результатів</t><br><br>";
-			return $this->renderView('AcmeTanksBundle::tank.html.twig', array('data'=>$tanks));
-		}else{
-			return $this->renderView('AcmeTanksBundle::nofound.html.twig');
-		}	
-	}
-	
+
 	public function user_enter()
 	{
 		if(!isset($_GET['hash'])){

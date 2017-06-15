@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-    <title>{% block title %}Цистерни.ua-головна{% endblock %}</title>
+    <title>{% block title %}{% trans %}Цистерни.ua - головна{% endtrans %}{% endblock %}</title>
     <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="{{ asset('scripts/jquery-2.2.0.js') }}"></script>
 	<script type="text/javascript" src="{{ asset('scripts/script.js') }}"></script>
@@ -21,19 +21,20 @@
 	<div id='theme_'>
 	  {% block theme %}
         <div class='base-blocks' style='background:#fa0'>
-		  <div><h1>Вітаємо на сайті Цистерни.ua</h1>
+		  <div><h1>{% trans %}Вітаємо на сайті Цистерни.ua{% endtrans%}</h1>
 		  <font color='#111' size='5' face="verdana">
-		    тут ви зможете дізнатись остані новини від картошкі,
-		    <br>обговороити з друзями подробицы гри,
-			<br>а також переглянути характеристики танків
+		    {% trans %}тут ви зможете дізнатись остані новини від картошкі{% endtrans%},
+		    <br/>{% trans %}обговороити з друзями подробицы гри{% endtrans%},
+			<br/>{% trans %}а також переглянути характеристики танків{% endtrans%}
 		  </font>			  
+		  </div>
 		</div>
-		</div>
-		<h1>новини</h1>
+		<h1>{% trans %}новини{% endtrans %}</h1>
 		<div id='news'></div>
 		<script type="text/javascript">
-		    $('#news').load('news.html .b-imgblock', function(){
-			    $('#news a').attr("target", "_blank");
+			$('#news').load('/news.html  .b-imgblock', function(responseTxt, statusTxt, xhr){
+				//alert(statusTxt +' - '+ xhr.status + ": " + xhr.statusText);
+				$('#news a').attr("target", "_blank");
 			});            
 		</script>
       {% endblock %}
