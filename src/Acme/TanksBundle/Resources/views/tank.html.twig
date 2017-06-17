@@ -3,11 +3,12 @@
 <div class='show_tanks'>
 	<div class='show_tanks_info'>
 	    <a href="{{path('acme_tank',{'name':data.name} ) }}">{{data.name}}</a><br>
-		тип: <a href="{{path('acme_tanks_review',{'type':data.type})}}">{{data.type}}</a><br>
-		рівень: <a href="{{ path('acme_tanks_review',{'type':'all', 'level':data.level}) }}">{{data.level}}</a>
+		{%trans%}тип{%endtrans%}: <a href="{{path('acme_tanks_review',{'type':data.type})}}">{{data.type}}</a><br>
+		{%trans%}рівень{%endtrans%}: <a href="{{ path('acme_tanks_review',{'type':'all', 'level':data.level}) }}">{{data.level}}</a>
 	</div>
 		<a href="{{path('acme_tank',{'name':data.name} ) }}">
 			<img width='100%' height='auto' src='{{asset(data.photo)}}'>
 		</a>
 </div>
+
 {%endfor%}

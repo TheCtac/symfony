@@ -1,65 +1,88 @@
 acme_tanks_homepage:
-    path:     /tanks
+    path:     /tanks/{_locale}/
     defaults: { _controller: AcmeTanksBundle:Tanks:index }
+    requirements:
+
 acme_tanks_homepage2:
     path:     /
     defaults: { _controller: AcmeTanksBundle:Tanks:index }
+    requirements:
+        _locale: ua|en
+
 acme_tanks_study:
-    path:     /tanks/study
+    path:     /tanks/{_locale}/study
     defaults: { _controller: AcmeTanksBundle:Tanks:study }
+    requirements:
+
 acme_tanks_review:
-    path:     /tanks/review/{type}/{level}/{page}
+    path:     /tanks/{_locale}/review/{type}/{level}/{page}
     defaults: { _controller: AcmeTanksBundle:Tanks:review,type:all, page:1, level:0 }
     requirements:
         page: \d+
         type: all|TT|ST|LT|PT|SAU
         level: 0|1|2|3|4|5|6|7|8|9|10
 acme_tanks_forum:
-    path:     /tanks/forum/{tag}/{page}
+    path:     /tanks/{_locale}/forum/{tag}/{page}
     defaults: { _controller: AcmeTanksBundle:Tanks:forum, tag:all, page:1 }
     requirements:
         page: \d+
 
 acme_tanks_theme:
-    path:     /tanks/theme/{theme}
+    path:     /tanks/{_locale}/theme/{theme}
     defaults: { _controller: AcmeTanksBundle:Tanks:theme, theme:not}
     requirements:
 
 acme_tanks_premium:
-    path:     /tanks/prem
+    path:     /tanks/{_locale}/prem
     defaults: { _controller: AcmeTanksBundle:Tanks:prem}
+    requirements:
 
 acme_tanks_ajax:
     path:     /tanks/ajax/{mathod}/{param}
     defaults: { _controller: AcmeTanksBundle:Ajax:index, mathod:all, param:0 }
+
+acme_tanks_by_name:
+    path: /tanks/{_locale}/tanksByName/{name}/{page}
+    defaults: { _controller: AcmeTanksBundle:Tanks:tanksByName, name:all, page:1 }
     requirements:
-        class: \w+
 
 acme_user_home:
-    path:     /tanks/home
+    path:     /tanks/{_locale}/home
     defaults: { _controller: AcmeTanksBundle:Tanks:home }
+    requirements:
 
 acme_admin:
-    path:  /tanks/admin
+    path:  /tanks/{_locale}/admin
     defaults: { _controller: AcmeTanksBundle:Tanks:admin }
+    requirements:
+
 acme_registration:	
-    path:  /tanks/registration
+    path:  /tanks/{_locale}/registration
     defaults:  { _controller: AcmeTanksBundle:Tanks:registration}
+    requirements:
+
 acme_tank:	
-    path:  /tanks/tank/{name}
+    path:  /tanks/{_locale}/tank/{name}
     defaults:  { _controller: AcmeTanksBundle:Tanks:oneTank}
+    requirements:
+        
 acme_user_red:	
-    path:  /tanks/user_red
+    path:  /tanks/{_locale}/user_red
     defaults:  { _controller: AcmeTanksBundle:Tanks:userRed}    
+    requirements:
+        
 acme_user_brow:
-    path: /tanks/users/{user}    
+    path: /tanks/{_locale}/users/{user}    
     defaults:  { _controller: AcmeTanksBundle:Tanks:userBrow, user:myself} 
     requirements:
-        class: \w+
+
 acme_user_mess:
-    path: /tanks/user_mess/{type}    
+    path: /tanks/{_locale}/user_mess/{type}    
     defaults:  { _controller: AcmeTanksBundle:Tanks:userMess, type:in}
+    requirements:
+        
 acme_test:
-    path: /tanks/test    
+    path: /tanks/{_locale}/test    
     defaults:  { _controller: AcmeTanksBundle:Functions:getUserLogin}
-    
+    requirements:
+   

@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="ua" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Вітаємо на сайті Цистерни.ua</source>
+                <target>Welcome to Цистерни.ua</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>тут ви зможете дізнатись остані новини від картошкі</source>
+                <target>here you can find out last news from potato</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>обговороити з друзями подробицы гри</source>
+                <target>discuss with friends games details</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>а також переглянути характеристики танків</source>
+                <target>and browse tanks specifications</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>новини</source>
+                <target>news</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>преміум магазин</source>
+                <target>premium shop</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>огляд танків</source>
+                <target>tanks review</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>форум</source>
+                <target>forum</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>полігон</source>
+                <target>proving ground</target>
+            </trans-unit>
+            <trans-unit id="10a">
+                <source>Танки</source>
+                <target>Tanks</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>важкі танки</source>
+                <target>heavy tanks</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>середні танки</source>
+                <target>middle tanks</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>легкі танки</source>
+                <target>light tanks</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>пт-сау</source>
+                <target>at-acs</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>сау</source>
+                <target>acs</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Цистерни.ua - головна</source>
+                <target>Цистерни.ua - main page</target>
+            </trans-unit>		
+            <trans-unit id="16">
+                <source>знайдено</source>
+                <target>found</target>
+            </trans-unit>			
+            <trans-unit id="17">
+                <source>Привіт</source>
+                <target>Hello</target>
+            </trans-unit>	
+            <trans-unit id="18">
+                <source>мій профіль</source>
+                <target>my account</target>
+            </trans-unit>	
+            <trans-unit id="19">
+                <source>вийти з аккаунту</source>
+                <target>sign out</target>
+            </trans-unit>	
+            <trans-unit id="20">
+                <source>увійти</source>
+                <target>sign in</target>
+            </trans-unit>	
+            <trans-unit id="21">
+                <source>зареєструватись</source>
+                <target>registration</target>
+            </trans-unit>	
+            <trans-unit id="22">
+                <source>пошук по сайту</source>
+                <target>search</target>
+            </trans-unit>	
+            <trans-unit id="23">
+                <source>увійти на сайт</source>
+                <target>sing in</target>
+            </trans-unit>	
+            <trans-unit id="24">
+                <source>реєстрація на сайті</source>
+                <target>registration on site</target>
+            </trans-unit>	
+            <trans-unit id="25">
+                <source>або</source>
+                <target>or</target>
+            </trans-unit>	
+            <trans-unit id="26">
+                <source>%level%-го рівня</source>
+                <target>of %level%-th level</target>
+            </trans-unit>	
+            <trans-unit id="27">
+                <source>Додати танк</source>
+                <target>Add new tank</target>
+            </trans-unit>	
+            <trans-unit id="28">
+                <source>%level%-го рівня</source>
+                <target>of %level%-th level</target>
+            </trans-unit>	
+            <trans-unit id="29">
+                <source>тип</source>
+                <target>type</target>
+            </trans-unit>	
+            <trans-unit id="30">
+                <source>рівень</source>
+                <target>level</target>
+            </trans-unit>
+			<trans-unit id="31">
+                <source>КУРС ВАЛЮТ</source>
+                <target>EXCHANGE</target>
+            </trans-unit>		
+			<trans-unit id="32">
+                <source>купівля</source>
+                <target>buy</target>
+            </trans-unit>	
+			<trans-unit id="33">
+                <source>продаж</source>
+                <target>sale</target>
+            </trans-unit>
+		</body>
+    </file>
+</xliff>

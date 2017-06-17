@@ -1,21 +1,21 @@
 <div id='enter_form'>
 <div id='top'>
 	{%if app.request.cookies.has('login') %}
-		Привіт <d style='color:#fa0;font-size:19px;'>{{app.request.cookies.get('login')}}</d>
-		<a href="{{path('acme_user_home')}}" title='мій кабінет'>
+		{%trans%}Привіт{%endtrans%} <d style='color:#fa0;font-size:19px;'>{{app.request.cookies.get('login')}}</d>
+		<a href="{{path('acme_user_home')}}" title='{%trans%}мій профіль{%endtrans%}'>
 		  <img class = 'img_repl' src="{{ asset('images/home.png')}}" alt="{{ asset('images/hom1.png')}}" height='18px' >
 		</a>
-		<a href='#' title='вийти з аккаунту' onclick='exit_user()'>
+		<a href='#' title='{%trans%}вийти з аккаунту{%endtrans%}' onclick='exit_user()'>
 		  <img class = 'img_repl' src="{{ asset('images/exit.png')}}" alt="{{ asset('images/exit1.png')}}" height='18px'>
 		</a>
 	{%else%}
-		<a href='#' onclick='enter.call(this)' title='увійти на сайт' style='font-size:17px;color:#fb0'>увійти</a> або 
-		<a href='{{path('acme_registration')}}' title='реєстрація на сайті' style='font-size:17px;color:#fb0'>зареєструватись</a>
+		<a href='#' onclick='enter.call(this)' title='{%trans%}увійти на сайт{%endtrans%}' style='font-size:17px;color:#fb0'>{%trans%}увійти{%endtrans%}</a>{%trans%}або{%endtrans%} 
+		<a href='{{path('acme_registration')}}' title='{%trans%}реєстрація на сайті{%endtrans%}' style='font-size:17px;color:#fb0'>{%trans%}зареєструватись{%endtrans%}</a>
 	{%endif%}	
 </div>
 <div id='find_'>
 	<form id='f1' name='form1' onkeypress="if(event.keyCode==13){event.preventDefault();find_()};">
-		<input type='text' name='tank1' value='' placeholder='пошук по сайту'>
+		<input type='text' name='tank1' value='' placeholder='{%trans%}пошук по сайту{%endtrans%}'>
 		<a style='position:relative;top:3px;' href='#' onclick="find_();">
 			<img  class = 'img_repl' src="{{ asset('images/find.png')}}" alt={{ asset('images/find1.png')}} height='20px'>
 		</a>

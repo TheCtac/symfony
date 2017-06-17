@@ -16,10 +16,13 @@ class TanksController extends Controller
 	public $func ;
 	private $musqli;
 	public $this_user;
-
+    private $locale_;
+	
 	function __construct()
 	{
-		$this -> func = new FunctionsController;
+        $req = Request::createFromGlobals();
+		$this->locale_ = $req->getLocale();
+    	$this -> func = new FunctionsController;
 		$this->mysqli = new \mysqli("localhost", "root", "", "tanks");
 //		$this-> mysqli = new \mysqli("localhost", "id1711110_root", "rapers", "id1711110_tanks");
 		$this->this_user = $this->func->get_cookie('login');
@@ -28,7 +31,7 @@ class TanksController extends Controller
 	public function indexAction()
 	{	
 		if (@file_get_contents('https://worldoftanks.ru') === FALSE){
-		    $html = "<div class='b-imgblock'><b>site not available</b></div>";
+		    $html = "<div class='b-imgblock'><h2>site not available</h2></div>";
         } else {
 		    $html = file_get_contents('https://worldoftanks.ru');
 		}
@@ -116,17 +119,18 @@ class TanksController extends Controller
 		if( $level == 0){
 			$lev = '';
 	    }else{
-			$lev = $level.'-го рівня';
+			$lev = $this->get('translator')->trans('%level%-го рівня', array('%level%' => $level));
 		}
 		switch($type){
-			case "TT":$vid_='важких танків ';break;
-			case "ST":$vid_='середніх танків ';break;
-			case "LT":$vid_='легких танків ';break;
-			case "PT":$vid_='ПТ-САУ ';break;
-			case "SAU":$vid_='САУ ';break;
-			case "all":$vid_='танків ';break;
+			case "TT":$vid_='важкі танки';break;
+			case "ST":$vid_='середні танки';break;
+			case "LT":$vid_='легкі танки';break;
+			case "PT":$vid_='ПТ-САУ';break;
+			case "SAU":$vid_='САУ';break;
+			case "all":$vid_='Танки';break;
 		}
-		$vid_ .= $lev; 
+		$vid_ = $this->get('translator')->trans($vid_);
+		$vid_ .= ' ' . $lev; 
 		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:tanks_');
 		if($type=='all'){
@@ -136,10 +140,28 @@ class TanksController extends Controller
 		}
 		$count = count($tanks);
 		$tanks = array_slice($tanks, ($page - 1)*4, 4);
-		
+		$url =  '/tanks/'.$this->locale_.'/review/'.$type.'/'.$level.'/';
 		return $this->render('AcmeTanksBundle::review.html.twig',
-		array('data'=>$tanks,'vid'=>$vid_,'page'=>$page,'count'=>$count,'type'=>$type,'level'=>$level));
+		array('data'=>$tanks,'vid'=>$vid_,'page'=>$page,'count'=>$count,'type'=>$type,'level'=>$level, 'url_'=>$url));
    }
+	public function tanksByNameAction($name, $page)
+	{
+        $functions = $this -> func;	
+		$param=$functions->u0_to_cyr($name);
+		
+		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:tanks_');	
+		$tanks=$repository->findTanks('name',"t.name like '%".$name."%'",0);
+		$count = count($tanks);
+		$tanks = array_slice($tanks, ($page - 1)*4, 4);
+
+		if($count>0){
+			return $this->render('AcmeTanksBundle::tanksByName.html.twig', 
+			array('data'=>$tanks, 'name'=>$name, 'count'=>$count, 'page'=>$page));
+		} else {
+			return $this->renderView('AcmeTanksBundle::nofound.html.twig');
+		}	
+	}
+	
 	public function ForumAction($tag,$page)
     {		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:themes');

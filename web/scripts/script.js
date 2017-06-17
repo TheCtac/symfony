@@ -3,6 +3,11 @@ $('document').ready(function(){
 /*
 *delete div
 */
+  var url = window.location.pathname;
+  locale_ = url.split('/')[2];
+  if ( locale_ == 'en' && locale_ == 'ua'){
+	  locale_ = 'ua';
+  }
   $('.close').click(function(){
 	  var elem = this.parentNode;	  
 	  $(elem).animate({
@@ -289,11 +294,11 @@ function find_(){
     var tank_ = tank_.replace(' ','%20');
 
     document.form1.tank1.value = '';
-    url_ = '/tanks/ajax/getTanksByName/'+tank_;
+    url_ = '/tanks/'+ locale_ +'/tanksByName/' + tank_ + ' #theme_';
 
     window.onpopstate = null;
     $('#theme_').load(url_, function(){
-        history.pushState(null, null, location.pathname);
+        history.pushState(null, null, '/tanks/'+ locale_ +'/tanksByName/'+tank_);
         window.onpopstate = function(){
             $('#theme_').load(location.pathname +' #theme_');
             //document.getElementById('theme_').innerHTML;		
@@ -563,7 +568,7 @@ function send_red(){
 		type:'POST',
 		processData:false,
 		contentType:false,
-		success:function(){location.replace("http://localhost:8000/tanks/home");},
+		success:function(){location.replace("http://localhost:8000/tanks/"+ locale_ +"/home");},
 		error:function(){show_mess('Сталась помилка! Перевірте введені поля')}
 	});
 }
@@ -651,7 +656,7 @@ function add_new_comm(type_){
 		success:function(retData){
 				retData=JSON.parse(retData);
 				form.new_comm.value='';
-				$('#comments').load('/tanks/'+retData.type+'/'+retData.theme.replace(/ /g,'%20')+' #comments' ,function(){add_open('new_comm');window.scrollTo(0,3000);});				
+				$('#comments').load('/tanks/'+ locale_ +'/'+retData.type+'/'+retData.theme.replace(/ /g,'%20')+' #comments' ,function(){add_open('new_comm');window.scrollTo(0,3000);});				
 		},
 		error:function(){show_mess('Сталась помилка! Перевірте введені дані');}
 	});

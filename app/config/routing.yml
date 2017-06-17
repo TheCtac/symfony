@@ -1,6 +1,8 @@
 acme_tanks:
     resource: "@AcmeTanksBundle/Resources/config/routing.yml"
     prefix:   /
+    requirements:
+        _locale: en|ua
 acme_hello:
     resource: "@AcmeHelloBundle/Resources/config/routing.yml"
     prefix:   /
