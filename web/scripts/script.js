@@ -292,12 +292,13 @@ function find_(){
     url_ = '/tanks/ajax/getTanksByName/'+tank_;
 
     window.onpopstate = null;
-    $('#theme_').load(url_);
-    history.pushState(null, null, location.pathname);
-    window.onpopstate = function(){
-        $('#theme_').load(location.pathname +' #theme_');
-        //document.getElementById('theme_').innerHTML;		
-    };
+    $('#theme_').load(url_, function(){
+        history.pushState(null, null, location.pathname);
+        window.onpopstate = function(){
+            $('#theme_').load(location.pathname +' #theme_');
+            //document.getElementById('theme_').innerHTML;		
+        };		
+	});
 }
 
 function change_photo(){

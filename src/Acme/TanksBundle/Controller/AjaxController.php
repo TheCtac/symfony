@@ -53,15 +53,14 @@ class AjaxController extends Controller
 	public function getTanksByName($param)
 	{
 		$functions = $this -> func;	
-		$param=$functions->u0_to_cyr($param);
+		$param = $functions->u0_to_cyr($param);
 		
 		$repository = $this->getDoctrine()->getRepository('AcmeTanksBundle:tanks_');	
 		$tanks=$repository->findTanks('name',"t.name like '%".$param."%'",0);
-		if(count($tanks)>0)
-		{
+		if(count($tanks)>0){
 			echo "<br><t style='font-size:20px;color:#fa0'>знайдено ".count($tanks)." результатів</t><br><br>";
 			return $this->renderView('AcmeTanksBundle::tank.html.twig', array('data'=>$tanks));
-		}else{
+		} else {
 			return $this->renderView('AcmeTanksBundle::nofound.html.twig');
 		}	
 	}
@@ -495,16 +494,12 @@ class AjaxController extends Controller
 		if ( $user['id'] != $mess->getFromId() and $user['id'] != $mess->getToId() ){
 			return $user['id'].'НЕ ВАРТО ЧИТАТИ ЧУЖІ ЛИСТИ !';
 		}
-<<<<<<< HEAD
-		//$login = $this->container->get('functions')->getUserLogin($mess->getFromId());
-=======
 		if ($mess->getTypeMess() == 1 and $mess->getToId() == $user['id']){
 	 	    $mess->setTypeMess(2);
 	    	$em = $this->getDoctrine()->getEntityManager();
 		    $em->persist($mess);
 		    $em->flush(); 	            
 		}	
->>>>>>> 8ecc14b76ae25cdb1869256d758f6825c03cd74a
 		return $this->renderView('AcmeTanksBundle::message.html.twig',array('mess'=>$mess));
 	}
 	

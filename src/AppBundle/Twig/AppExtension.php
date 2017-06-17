@@ -49,12 +49,6 @@ class AppExtension extends \Twig_Extension
     return $count;
     }
     function getUserLogin($id){
-<<<<<<< HEAD
-       $func = new FunctionsController();
-       $user = $func->getUserLogin($id);
-    return $user;
-    }   
-=======
         $id = intval($id);
         $repository = $this->entityManager->getRepository('AcmeTanksBundle:users');
         $user=$repository->findOneById($id);
@@ -63,7 +57,6 @@ class AppExtension extends \Twig_Extension
         }
     return $user->getLogin();
     }
->>>>>>> 8ecc14b76ae25cdb1869256d758f6825c03cd74a
     public function getName()
     {
         return 'app_extension';
