@@ -7,7 +7,6 @@ acme_tanks_homepage2:
     path:     /
     defaults: { _controller: AcmeTanksBundle:Tanks:index }
     requirements:
-        _locale: ua|en
 
 acme_tanks_study:
     path:     /tanks/{_locale}/study

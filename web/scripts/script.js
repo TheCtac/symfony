@@ -1,13 +1,15 @@
 
 $('document').ready(function(){        
-/*
-*delete div
-*/
+
   var url = window.location.pathname;
   locale_ = url.split('/')[2];
+  //show_mess(locale_);
   if ( locale_ == 'en' && locale_ == 'ua'){
 	  locale_ = 'ua';
   }
+/*
+*delete div
+*/
   $('.close').click(function(){
 	  var elem = this.parentNode;	  
 	  $(elem).animate({

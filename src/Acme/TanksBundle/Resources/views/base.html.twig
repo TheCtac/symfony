@@ -32,7 +32,7 @@
 		<h1>{% trans %}новини{% endtrans %}</h1>
 		<div id='news'></div>
 		<script type="text/javascript">
-			$('#news').load('/news.html  .b-imgblock', function(responseTxt, statusTxt, xhr){
+			$('#news').load('/news.html  .small-news', function(responseTxt, statusTxt, xhr){
 				//alert(statusTxt +' - '+ xhr.status + ": " + xhr.statusText);
 				$('#news a').attr("target", "_blank");
 			});            
